@@ -310,7 +310,7 @@ export default function Home() {
                 </div>
               </button>
               <button
-                className="flex items-center gap-4 bg-white/10 border border-white/20 text-background px-8 py-4 rounded-2xl font-medium hover:bg-white/15 transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-auto"
+                className="flex items-center gap-4 bg-background/10 border border-background/20 text-background px-8 py-4 rounded-2xl font-medium hover:bg-background/15 transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-auto"
                 data-testid="button-download-android"
               >
                 <SiGoogleplay className="w-7 h-7 flex-shrink-0" />
