@@ -42,7 +42,7 @@ const features = [
 const contrast = [
   { other: "Punishes missed sessions", recur: "Adapts to missed sessions" },
   { other: "Streak counters and broken rings", recur: "No streaks, no guilt" },
-  { other: '"Start from week one again"', recur: "Picks up where you left off" },
+  { other: '"Start from week one again"', recur: "Eases you back in intelligently" },
   { other: "Push through the pain", recur: "Work around the pain" },
   { other: "Built for the gym, 5 days a week", recur: "Built for real schedules, real bodies" },
 ];
