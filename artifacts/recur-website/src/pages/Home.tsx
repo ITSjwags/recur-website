@@ -20,39 +20,39 @@ const features = [
   {
     icon: <History className="w-6 h-6" />,
     title: "Progress you don't have to reset",
-    body: "Miss a week because of work, travel, or just life? Recur doesn't guilt you or send you back to week one. It reads where you are and rebuilds from there.",
+    body: "Miss a week because of work, travel, or just life? Recur doesn't send you back to square one. It figures out where you are and eases you back in from there.",
   },
   {
     icon: <RefreshCcw className="w-6 h-6" />,
-    title: "Adapts to breaks automatically",
-    body: "No streak counters. No broken rings. When you come back — whether it's been 10 days or 3 months — the plan quietly adjusts so returning is never the hard part.",
+    title: "No guilt when you miss a day",
+    body: "No streaks. No app shaming you for missing sessions. When you come back — whether it's been 10 days or 3 months — it adjusts quietly and you just get on with it.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: "Works around pain, not through it",
-    body: "That shoulder thing from a few years back. The knee that flares up. Tell the app and it swaps exercises on the fly — protecting what needs protecting while still moving forward.",
+    body: "That shoulder thing from a few years back. The knee that flares up. Tell the app and it swaps to something that doesn't aggravate it — so you can still show up.",
   },
   {
     icon: <Dumbbell className="w-6 h-6" />,
-    title: "Built for home workouts with dumbbells",
-    body: "No gym required. No complicated equipment. Just a pair of weights and the 30–45 minutes you can actually find in a busy week.",
+    title: "Works with what you have at home",
+    body: "No gym membership. No expensive equipment. Just a pair of dumbbells and whatever time you can carve out — 20 minutes or 45, it works.",
   },
 ];
 
 const contrast = [
-  { other: "Punishes missed sessions", recur: "Adapts to missed sessions" },
-  { other: "Streak counters and broken rings", recur: "No streaks, no guilt" },
-  { other: '"Start from week one again"', recur: "Eases you back in intelligently" },
-  { other: "Push through the pain", recur: "Work around the pain" },
-  { other: "Built for the gym, 5 days a week", recur: "Built for real schedules, real bodies" },
+  { other: "Makes you feel bad for missing days", recur: "Adjusts and moves on" },
+  { other: "Streak counters and guilt trips", recur: "No streaks, no pressure" },
+  { other: '"Start from week one again"', recur: "Eases you back in from where you are" },
+  { other: "Push through the pain", recur: "Work around it instead" },
+  { other: "Needs a gym and a rigid schedule", recur: "Works at home, around your week" },
 ];
 
 const forWho = [
-  "You've tried fitness apps before and abandoned them",
-  "You have an old injury you train around",
-  "Work, kids, or travel derail your schedule regularly",
-  "You want to feel strong — not compete or perform",
-  "You've been in the boom-bust cycle long enough to know it doesn't work",
+  "You've downloaded fitness apps before and stopped using them",
+  "You have an old injury that flares up occasionally",
+  "Work, kids, or travel make consistent exercise hard",
+  "You just want to feel better and stay active — not train for a competition",
+  "You've started and stopped enough times to be skeptical of yet another app",
 ];
 
 export default function Home() {
@@ -92,28 +92,17 @@ export default function Home() {
             variants={stagger}
             className="flex flex-col items-start"
           >
-            <motion.div variants={fadeUp} className="mb-5">
-              <span className="inline-block text-xs font-semibold tracking-[0.15em] uppercase text-primary border border-primary/30 px-3 py-1.5 rounded-full">
-                Strength training for real life
-              </span>
-            </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="text-[clamp(3.5rem,10vw,8rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-5"
+              className="text-[clamp(3.5rem,10vw,8rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
             >
               Stop starting<br />over.
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-3 leading-relaxed"
+              className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed"
             >
               Strength training that adapts to your history.
-            </motion.p>
-            <motion.p
-              variants={fadeUp}
-              className="text-sm font-medium tracking-wide text-primary mb-10"
-            >
-              Consistency without flare-ups.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
               <a
@@ -307,7 +296,7 @@ export default function Home() {
               Consistency without<br />flare-ups.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-lg text-background/60 mb-14 max-w-md mx-auto leading-relaxed">
-              For home trainers who want to keep going — not start over. Free to download.
+              For people who just want to stay active — without the guilt, the injuries, or starting over. Free to download.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
