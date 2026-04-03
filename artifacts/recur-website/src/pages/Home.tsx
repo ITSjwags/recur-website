@@ -38,14 +38,6 @@ const features = [
   },
 ];
 
-const contrast = [
-  { other: "Makes you feel bad for missing days", recur: "Adjusts and moves on" },
-  { other: "Streak counters and guilt trips", recur: "No streaks, no pressure" },
-  { other: '"Start from week one again"', recur: "Eases you back in from where you are" },
-  { other: "Push through the pain", recur: "Work around it instead" },
-  { other: "Needs a gym and a rigid schedule", recur: "Works at home, around your week" },
-];
-
 const forWho = [
   "You've downloaded fitness apps before and stopped using them",
   "You have an old injury that flares up occasionally",
@@ -188,7 +180,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-16"
           >
-            What Recur does differently
+            A different relationship with training
           </motion.p>
           <div className="grid md:grid-cols-2 gap-x-20 gap-y-14">
             {features.map((f, i) => (
@@ -210,40 +202,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Contrast table */}
-      <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-12">
-              A different relationship with training
-            </p>
-            <div className="grid grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-border">
-              <div className="bg-muted/40 px-6 py-4 border-b border-border">
-                <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">Most apps</p>
-              </div>
-              <div className="bg-primary px-6 py-4 border-b border-primary/60">
-                <p className="text-xs font-semibold tracking-wider uppercase text-primary-foreground/80">Recur</p>
-              </div>
-              {contrast.map((row, i) => (
-                <div key={i} className="contents">
-                  <div className={`px-6 py-5 flex items-center ${i < contrast.length - 1 ? "border-b border-border" : ""} bg-muted/20`}>
-                    <p className="text-sm text-muted-foreground line-through decoration-muted-foreground/40">{row.other}</p>
-                  </div>
-                  <div className={`px-6 py-5 flex items-center ${i < contrast.length - 1 ? "border-b border-primary/20" : ""} bg-primary/5`}>
-                    <p className="text-sm font-medium text-foreground">{row.recur}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
