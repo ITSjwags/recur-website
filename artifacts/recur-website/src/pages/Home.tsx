@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { SiApple, SiGoogleplay } from "react-icons/si";
 import { History, RefreshCcw, ShieldCheck, Dumbbell } from "lucide-react";
-import recurLogoLight from "@assets/recur-white_1775218113202.png";
 import recurLogoDark from "@assets/recur_1775218108653.png";
 import recurIcon from "@assets/icon_1775218102896.png";
 
@@ -289,9 +288,6 @@ export default function Home() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            <motion.div variants={fadeUp} className="mb-6">
-              <img src={recurLogoLight} alt="Recur" className="h-8 w-auto mx-auto opacity-90" />
-            </motion.div>
             <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
               Consistency without<br />flare-ups.
             </motion.h2>
