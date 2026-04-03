@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "P2jEFe2SfY7zOpKwgMxck"
+uri = "file://artifacts/recur-website/public/home-workout.jpg"
+type = "image"
+title = "person working out with dumbbells at home, natural lighting, calm environment"
