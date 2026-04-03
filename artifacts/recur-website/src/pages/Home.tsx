@@ -25,17 +25,17 @@ const features = [
   {
     icon: <RefreshCcw className="w-6 h-6" />,
     title: "No guilt when you miss a day",
-    body: "No streaks. No app shaming you for missing sessions. When you come back — whether it's been 10 days or 3 months — it adjusts quietly and you just get on with it.",
+    body: "No streaks. No app shaming you for missing sessions. When you come back, whether it's been 10 days or 3 months, it adjusts quietly and you just get on with it.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: "Works around pain, not through it",
-    body: "That shoulder thing from a few years back. The knee that flares up. Tell the app and it swaps to something that doesn't aggravate it — so you can still show up.",
+    body: "That shoulder thing from a few years back. The knee that flares up. Tell the app and it swaps to something that doesn't aggravate it, so you can still show up.",
   },
   {
     icon: <Dumbbell className="w-6 h-6" />,
     title: "Works with what you have at home",
-    body: "No gym membership. No expensive equipment. Just a pair of dumbbells and whatever time you can carve out — 20 minutes or 45, it works.",
+    body: "No gym membership. No expensive equipment. Just a pair of dumbbells and whatever time you can carve out, 20 minutes or 45, it works.",
   },
 ];
 
@@ -51,7 +51,7 @@ const forWho = [
   "You've downloaded fitness apps before and stopped using them",
   "You have an old injury that flares up occasionally",
   "Work, kids, or travel make consistent exercise hard",
-  "You just want to feel better and stay active — not train for a competition",
+  "You just want to feel better and stay active, not train for a competition",
   "You've started and stopped enough times to be skeptical of yet another app",
 ];
 
@@ -296,7 +296,7 @@ export default function Home() {
               Consistency without<br />flare-ups.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-lg text-background/60 mb-14 max-w-md mx-auto leading-relaxed">
-              For people who just want to stay active — without the guilt, the injuries, or starting over. Free to download.
+              For people who just want to stay active, without the guilt, the injuries, or starting over. Free to download.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
