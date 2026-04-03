@@ -20,39 +20,47 @@ const features = [
   {
     icon: <History className="w-6 h-6" />,
     title: "Progress you don't have to reset",
-    body: "Miss a week — or a month. Recur doesn't guilt you or send you back to week one. It reads where you are and rebuilds from there.",
+    body: "Miss a week because of work, travel, or just life? Recur doesn't guilt you or send you back to week one. It reads where you are and rebuilds from there.",
   },
   {
     icon: <RefreshCcw className="w-6 h-6" />,
     title: "Adapts to breaks automatically",
-    body: "No streak counters. No broken rings. When you return, the plan scales back intelligently so coming back is never the hard part.",
+    body: "No streak counters. No broken rings. When you come back — whether it's been 10 days or 3 months — the plan quietly adjusts so returning is never the hard part.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: "Works around pain, not through it",
-    body: "Shoulder acting up? Knee feeling tight? Tell the app. It swaps exercises on the fly to protect what needs protecting.",
+    body: "That shoulder thing from a few years back. The knee that flares up. Tell the app and it swaps exercises on the fly — protecting what needs protecting while still moving forward.",
   },
   {
     icon: <Dumbbell className="w-6 h-6" />,
     title: "Built for home workouts with dumbbells",
-    body: "No complex gym setup required. Designed for real life — which often means a small space and a pair of weights.",
+    body: "No gym required. No complicated equipment. Just a pair of weights and the 30–45 minutes you can actually find in a busy week.",
   },
 ];
 
 const contrast = [
   { other: "Punishes missed sessions", recur: "Adapts to missed sessions" },
   { other: "Streak counters and broken rings", recur: "No streaks, no guilt" },
+  { other: '"Start from week one again"', recur: "Picks up where you left off" },
   { other: "Push through the pain", recur: "Work around the pain" },
-  { other: "Built for the gym", recur: "Built for your living room" },
-  { other: '"Start from week one again"', recur: "Picks up where life left off" },
+  { other: "Built for the gym, 5 days a week", recur: "Built for real schedules, real bodies" },
+];
+
+const forWho = [
+  "You've tried fitness apps before and abandoned them",
+  "You have an old injury you train around",
+  "Work, kids, or travel derail your schedule regularly",
+  "You want to feel strong — not compete or perform",
+  "You've been in the boom-bust cycle long enough to know it doesn't work",
 ];
 
 export default function Home() {
   useEffect(() => {
-    document.title = "Recur | Strength training that adapts to your history";
+    document.title = "Recur | Consistency without flare-ups";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
-      meta.setAttribute("content", "Strength training that adapts to your history. Adapts to breaks. Works around pain. Builds momentum that lasts.");
+      meta.setAttribute("content", "Strength training for adults who train at home and want to stay consistent without getting hurt or burned out. Adapts to breaks, works around pain, builds momentum that lasts.");
     }
   }, []);
 
@@ -84,22 +92,28 @@ export default function Home() {
             variants={stagger}
             className="flex flex-col items-start"
           >
-            <motion.div variants={fadeUp} className="mb-4">
+            <motion.div variants={fadeUp} className="mb-5">
               <span className="inline-block text-xs font-semibold tracking-[0.15em] uppercase text-primary border border-primary/30 px-3 py-1.5 rounded-full">
-                Strength training
+                Strength training for real life
               </span>
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="text-[clamp(3.5rem,10vw,8rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
+              className="text-[clamp(3.5rem,10vw,8rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-5"
             >
               Stop starting<br />over.
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed"
+              className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-3 leading-relaxed"
             >
               Strength training that adapts to your history.
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="text-sm font-medium tracking-wide text-primary mb-10"
+            >
+              Consistency without flare-ups.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
               <a
@@ -140,8 +154,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Who this is for */}
+      <section className="py-28 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-6">
+              Who it's for
+            </p>
+            <h2 className="text-3xl md:text-4xl font-semibold leading-snug tracking-tight">
+              Built for people with<br />a history.
+            </h2>
+          </motion.div>
+          <motion.ul
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+            className="flex flex-col gap-4 pt-1 md:pt-10"
+          >
+            {forWho.map((item, i) => (
+              <motion.li
+                key={i}
+                variants={fadeUp}
+                className="flex items-start gap-4 text-base text-foreground leading-relaxed"
+              >
+                <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-primary" />
+                {item}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
+      </section>
+
       {/* Features */}
-      <section className="py-32 px-6">
+      <section className="py-24 px-6 bg-card border-y border-border/60">
         <div className="max-w-6xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
@@ -151,7 +202,7 @@ export default function Home() {
           >
             What Recur does differently
           </motion.p>
-          <div className="grid md:grid-cols-2 gap-x-20 gap-y-16">
+          <div className="grid md:grid-cols-2 gap-x-20 gap-y-14">
             {features.map((f, i) => (
               <motion.div
                 key={i}
@@ -174,8 +225,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contrast table — "the difference" */}
-      <section className="py-24 px-6 bg-card border-y border-border/60">
+      {/* Contrast table */}
+      <section className="py-24 px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -184,7 +235,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-12">
-              A different relationship with the user
+              A different relationship with training
             </p>
             <div className="grid grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-border">
               <div className="bg-muted/40 px-6 py-4 border-b border-border">
@@ -209,7 +260,7 @@ export default function Home() {
       </section>
 
       {/* Lifestyle image block */}
-      <section className="py-24 px-6">
+      <section className="py-10 px-6 pb-24">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -219,14 +270,17 @@ export default function Home() {
             className="rounded-3xl overflow-hidden relative bg-foreground"
           >
             <img
-              src="/home-workout.jpg"
-              alt="Person working out calmly at home"
+              src="/lifestyle.png"
+              alt="Person working out calmly at home with dumbbells"
               className="w-full h-[420px] md:h-[560px] object-cover opacity-50 mix-blend-luminosity"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = "none";
+              }}
             />
             <div className="absolute inset-0 flex items-end p-10 md:p-16">
               <div className="max-w-lg">
                 <p className="text-3xl md:text-5xl font-semibold text-background leading-tight tracking-tight">
-                  The best program is the one you can come back to.
+                  Welcome back is always the answer.
                 </p>
               </div>
             </div>
@@ -250,10 +304,10 @@ export default function Home() {
               <img src={recurLogoLight} alt="Recur" className="h-8 w-auto mx-auto opacity-90" />
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
-              Progress you don't<br />have to reset.
+              Consistency without<br />flare-ups.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-lg text-background/60 mb-14 max-w-md mx-auto leading-relaxed">
-              Start building durable momentum today. Free to download.
+              For home trainers who want to keep going — not start over. Free to download.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
