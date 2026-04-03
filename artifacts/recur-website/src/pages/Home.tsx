@@ -107,7 +107,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
               <a
                 href="#download"
-                className="flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full text-base font-semibold hover:bg-primary/85 transition-all active:scale-95 shadow-lg shadow-primary/25"
+                className="flex items-center gap-3 border border-foreground/20 text-foreground px-8 py-4 rounded-full text-base font-medium hover:bg-foreground/5 transition-all active:scale-95"
                 data-testid="button-hero-download"
               >
                 <SiApple className="w-5 h-5" />
@@ -115,7 +115,7 @@ export default function Home() {
               </a>
               <a
                 href="#download"
-                className="flex items-center gap-3 border border-border text-foreground px-8 py-4 rounded-full text-base font-medium hover:bg-foreground/5 transition-all active:scale-95"
+                className="flex items-center gap-3 border border-foreground/20 text-foreground px-8 py-4 rounded-full text-base font-medium hover:bg-foreground/5 transition-all active:scale-95"
                 data-testid="button-hero-android"
               >
                 <SiGoogleplay className="w-4 h-4" />
