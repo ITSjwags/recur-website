@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { SiApple, SiGoogleplay } from "react-icons/si";
-import { History, RefreshCcw, ShieldCheck, Dumbbell } from "lucide-react";
+import { History, Zap, ShieldCheck, TrendingUp } from "lucide-react";
 import recurLogoDark from "@assets/recur_1775218108653.png";
 import recurIcon from "@assets/icon_1775218102896.png";
 
@@ -22,9 +22,9 @@ const features = [
     body: "Miss a week because of work, travel, or just life? It doesn't send you back to square one or start you exactly where you left off. It figures out where you are and eases you back in from there.",
   },
   {
-    icon: <RefreshCcw className="w-6 h-6" />,
-    title: "No guilt when you miss a day",
-    body: "No streaks. No app shaming you for missing sessions. When you come back, whether it's been 10 days or 3 months, it adjusts quietly and you just get on with it.",
+    icon: <Zap className="w-6 h-6" />,
+    title: "No planning required",
+    body: "Open the app and it tells you exactly what to do. No picking exercises, no figuring out weights, no following a program from YouTube. Just a workout built for where you are right now.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
@@ -32,9 +32,9 @@ const features = [
     body: "That shoulder thing from a few years back. The knee that flares up. Tell the app and it swaps to something that doesn't aggravate it, so you can still show up.",
   },
   {
-    icon: <Dumbbell className="w-6 h-6" />,
-    title: "Works with what you have at home",
-    body: "No gym membership. No expensive equipment. Just a pair of dumbbells and whatever time you can carve out, 20 minutes or 45, it works.",
+    icon: <TrendingUp className="w-6 h-6" />,
+    title: "Builds you up gradually",
+    body: "It starts at a level that makes sense for where you actually are and moves at a pace you can sustain. Not too easy, not too much too soon.",
   },
 ];
 
