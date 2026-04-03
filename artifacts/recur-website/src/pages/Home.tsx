@@ -1,51 +1,73 @@
 import { useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { SiApple, SiGoogleplay } from "react-icons/si";
-import { 
-  Activity, ShieldAlert, History, RefreshCcw, 
-  ArrowRight, CheckCircle2, Clock, Dumbbell,
-  CalendarDays
-} from "lucide-react";
-import { Link } from "wouter";
+import { History, RefreshCcw, ShieldCheck, Dumbbell } from "lucide-react";
+import recurLogoLight from "@assets/recur-white_1775218113202.png";
+import recurLogoDark from "@assets/recur_1775218108653.png";
+import recurIcon from "@assets/icon_1775218102896.png";
 
-const FADE_UP_ANIMATION_VARIANTS = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } },
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
-const STAGGER_CHILDREN = {
+const stagger = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.12 } },
 };
+
+const features = [
+  {
+    icon: <History className="w-6 h-6" />,
+    title: "Progress you don't have to reset",
+    body: "Miss a week — or a month. Recur doesn't guilt you or send you back to week one. It reads where you are and rebuilds from there.",
+  },
+  {
+    icon: <RefreshCcw className="w-6 h-6" />,
+    title: "Adapts to breaks automatically",
+    body: "No streak counters. No broken rings. When you return, the plan scales back intelligently so coming back is never the hard part.",
+  },
+  {
+    icon: <ShieldCheck className="w-6 h-6" />,
+    title: "Works around pain, not through it",
+    body: "Shoulder acting up? Knee feeling tight? Tell the app. It swaps exercises on the fly to protect what needs protecting.",
+  },
+  {
+    icon: <Dumbbell className="w-6 h-6" />,
+    title: "Built for home workouts with dumbbells",
+    body: "No complex gym setup required. Designed for real life — which often means a small space and a pair of weights.",
+  },
+];
+
+const contrast = [
+  { other: "Punishes missed sessions", recur: "Adapts to missed sessions" },
+  { other: "Streak counters and broken rings", recur: "No streaks, no guilt" },
+  { other: "Push through the pain", recur: "Work around the pain" },
+  { other: "Built for the gym", recur: "Built for your living room" },
+  { other: '"Start from week one again"', recur: "Picks up where life left off" },
+];
 
 export default function Home() {
   useEffect(() => {
     document.title = "Recur | Strength training that adapts to your history";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Strength training that adapts to your history. Adapts to breaks. Works around pain. Builds momentum that lasts.");
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) {
+      meta.setAttribute("content", "Strength training that adapts to your history. Adapts to breaks. Works around pain. Builds momentum that lasts.");
     }
   }, []);
 
   return (
-    <main className="min-h-[100dvh] bg-background text-foreground overflow-hidden selection:bg-primary/20 selection:text-primary">
-      {/* Navigation */}
+    <main className="min-h-[100dvh] bg-background text-foreground overflow-x-hidden">
+      {/* Nav */}
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border/40">
-        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="font-semibold text-2xl tracking-tight text-foreground flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <RefreshCcw className="w-4 h-4 text-primary-foreground" />
-            </div>
-            Recur
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <img src={recurIcon} alt="Recur icon" className="w-8 h-8 rounded-xl" />
+            <img src={recurLogoDark} alt="Recur" className="h-5 w-auto" />
           </div>
           <a
             href="#download"
-            className="text-sm font-medium px-6 py-2.5 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors"
+            className="text-sm font-semibold px-5 py-2 rounded-full bg-foreground text-background hover:bg-foreground/85 transition-colors"
             data-testid="link-nav-download"
           >
             Get the app
@@ -53,150 +75,158 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-40 pb-20 md:pt-56 md:pb-32 px-6">
-        <div className="max-w-5xl mx-auto text-center">
+      {/* Hero */}
+      <section className="pt-36 pb-24 md:pt-48 md:pb-32 px-6">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial="hidden"
             animate="show"
-            viewport={{ once: true }}
-            variants={STAGGER_CHILDREN}
+            variants={stagger}
+            className="flex flex-col items-start"
           >
-            <motion.h1 
-              variants={FADE_UP_ANIMATION_VARIANTS}
-              className="text-6xl md:text-8xl lg:text-[7.5rem] font-semibold tracking-tighter text-foreground mb-6 leading-[1.05]"
+            <motion.div variants={fadeUp} className="mb-4">
+              <span className="inline-block text-xs font-semibold tracking-[0.15em] uppercase text-primary border border-primary/30 px-3 py-1.5 rounded-full">
+                Strength training
+              </span>
+            </motion.div>
+            <motion.h1
+              variants={fadeUp}
+              className="text-[clamp(3.5rem,10vw,8rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
             >
-              Stop starting over.
+              Stop starting<br />over.
             </motion.h1>
-            <motion.p 
-              variants={FADE_UP_ANIMATION_VARIANTS}
-              className="text-xl md:text-3xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-light"
+            <motion.p
+              variants={fadeUp}
+              className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed"
             >
               Strength training that adapts to your history.
             </motion.p>
-            <motion.div 
-              variants={FADE_UP_ANIMATION_VARIANTS}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
               <a
                 href="#download"
-                className="flex items-center justify-center gap-3 bg-primary text-primary-foreground px-10 py-5 rounded-full text-lg font-medium hover:bg-primary/90 transition-all active:scale-95 w-full sm:w-auto shadow-lg shadow-primary/20"
+                className="flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full text-base font-semibold hover:bg-primary/85 transition-all active:scale-95 shadow-lg shadow-primary/25"
                 data-testid="button-hero-download"
               >
-                Download Recur
+                <SiApple className="w-5 h-5" />
+                Download for iOS
               </a>
-              <p className="text-sm text-muted-foreground sm:ml-4 font-medium tracking-wide uppercase">
-                iOS & Android
-              </p>
+              <a
+                href="#download"
+                className="flex items-center gap-3 border border-border text-foreground px-8 py-4 rounded-full text-base font-medium hover:bg-foreground/5 transition-all active:scale-95"
+                data-testid="button-hero-android"
+              >
+                <SiGoogleplay className="w-4 h-4" />
+                Download for Android
+              </a>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Value Prop Statement */}
-      <section className="py-20 bg-card px-6 border-y border-border/50">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h2 
+      {/* Bold value prop band */}
+      <section className="bg-foreground text-background py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-medium leading-tight text-foreground"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight"
           >
-            Adapts to breaks. Works around pain. Builds momentum that lasts.
-          </motion.h2>
+            Adapts to breaks.<br />
+            Works around pain.<br />
+            <span className="text-primary">Builds momentum that lasts.</span>
+          </motion.p>
         </div>
       </section>
 
-      {/* Feature Grid */}
+      {/* Features */}
       <section className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="flex flex-col gap-4"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-2">
-                <History className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-2xl font-semibold">Progress you don't have to reset</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Life happens. When you miss a week (or a month), Recur doesn't guilt you or send you back to week one. It assesses where you are and adjusts your plan to rebuild safely.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col gap-4"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-2">
-                <RefreshCcw className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-2xl font-semibold">Adapts to breaks automatically</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                No streak counters. No broken rings. Our algorithm intelligently scales back volume and intensity based on how long you've been away, making the return frictionless.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="flex flex-col gap-4"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-2">
-                <ShieldAlert className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-2xl font-semibold">Works around pain, not through it</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Shoulder acting up? Knee feeling tight? Tell the app. It dynamically swaps exercises to protect sensitive areas while still delivering an effective stimulus.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col gap-4"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-2">
-                <Dumbbell className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="text-2xl font-semibold">Built for home workouts with dumbbells</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                No complex gym setups required. Recur is optimized for minimal equipment, making it easier to fit a session into a chaotic schedule.
-              </p>
-            </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-16"
+          >
+            What Recur does differently
+          </motion.p>
+          <div className="grid md:grid-cols-2 gap-x-20 gap-y-16">
+            {features.map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: (i % 2) * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="flex gap-6"
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mt-0.5">
+                  {f.icon}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-3">{f.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{f.body}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Image / Lifestyle Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="rounded-[2.5rem] overflow-hidden relative h-[500px] md:h-[700px]"
+      {/* Contrast table — "the difference" */}
+      <section className="py-24 px-6 bg-card border-y border-border/60">
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="absolute inset-0 bg-foreground/20 z-10" />
-            <img 
-              src="/home-workout.jpg" 
-              alt="Person working out calmly at home" 
-              className="w-full h-full object-cover"
+            <p className="text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-12">
+              A different relationship with the user
+            </p>
+            <div className="grid grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-border">
+              <div className="bg-muted/40 px-6 py-4 border-b border-border">
+                <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">Most apps</p>
+              </div>
+              <div className="bg-primary px-6 py-4 border-b border-primary/60">
+                <p className="text-xs font-semibold tracking-wider uppercase text-primary-foreground/80">Recur</p>
+              </div>
+              {contrast.map((row, i) => (
+                <div key={i} className="contents">
+                  <div className={`px-6 py-5 flex items-center ${i < contrast.length - 1 ? "border-b border-border" : ""} bg-muted/20`}>
+                    <p className="text-sm text-muted-foreground line-through decoration-muted-foreground/40">{row.other}</p>
+                  </div>
+                  <div className={`px-6 py-5 flex items-center ${i < contrast.length - 1 ? "border-b border-primary/20" : ""} bg-primary/5`}>
+                    <p className="text-sm font-medium text-foreground">{row.recur}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Lifestyle image block */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-3xl overflow-hidden relative bg-foreground"
+          >
+            <img
+              src="/home-workout.jpg"
+              alt="Person working out calmly at home"
+              className="w-full h-[420px] md:h-[560px] object-cover opacity-50 mix-blend-luminosity"
             />
-            <div className="absolute inset-0 z-20 flex items-center justify-center p-8">
-              <div className="bg-background/95 backdrop-blur-xl p-8 md:p-12 rounded-3xl max-w-xl text-center border border-white/10 shadow-2xl">
-                <h3 className="text-3xl font-semibold mb-4">Sustainable. Durable. Real.</h3>
-                <p className="text-lg text-muted-foreground">
-                  The best training program isn't the one that pushes you the hardest. It's the one that makes it easier to come back tomorrow.
+            <div className="absolute inset-0 flex items-end p-10 md:p-16">
+              <div className="max-w-lg">
+                <p className="text-3xl md:text-5xl font-semibold text-background leading-tight tracking-tight">
+                  The best program is the one you can come back to.
                 </p>
               </div>
             </div>
@@ -204,98 +234,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonial / Social Proof Section */}
-      <section className="py-32 bg-accent/10 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="flex justify-center mb-8">
-              <div className="flex gap-1 text-primary">
-                {[1,2,3,4,5].map(i => (
-                  <svg key={i} className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                ))}
-              </div>
-            </div>
-            <p className="text-2xl md:text-4xl font-medium leading-normal text-foreground mb-12">
-              "Finally, an app that understands real life happens. I missed three weeks and it just calmly adjusted my plan. No guilt, no starting from zero. It's like having a coach who actually gets it."
-            </p>
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold text-xl">
-                S
-              </div>
-              <div className="text-left">
-                <p className="font-semibold text-lg">Sarah T.</p>
-                <p className="text-muted-foreground">Training with Recur for 6 months</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Download CTA */}
+      <section id="download" className="py-32 px-6 bg-foreground text-background relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
-      {/* Download CTA Section */}
-      <section id="download" className="py-32 bg-foreground text-background px-6 relative overflow-hidden">
-        {/* Subtle background decoration */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full opacity-5 pointer-events-none">
-          <RefreshCcw className="w-full h-full text-background" />
-        </div>
-        
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            variants={stagger}
           >
-            <h2 className="text-5xl md:text-7xl font-semibold mb-8 tracking-tight">
+            <motion.div variants={fadeUp} className="mb-6">
+              <img src={recurLogoLight} alt="Recur" className="h-8 w-auto mx-auto opacity-90" />
+            </motion.div>
+            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
               Progress you don't<br />have to reset.
-            </h2>
-            <p className="text-xl md:text-2xl text-background/70 mb-16 max-w-2xl mx-auto font-light">
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-lg text-background/60 mb-14 max-w-md mx-auto leading-relaxed">
               Start building durable momentum today. Free to download.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button 
-                className="flex items-center gap-4 bg-background text-foreground px-8 py-5 rounded-2xl font-medium hover:bg-background/90 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                className="flex items-center gap-4 bg-background text-foreground px-8 py-4 rounded-2xl font-medium hover:bg-background/90 transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-auto"
                 data-testid="button-download-ios"
               >
-                <SiApple className="w-8 h-8" />
+                <SiApple className="w-7 h-7 flex-shrink-0" />
                 <div className="text-left">
-                  <div className="text-xs leading-none mb-1.5 opacity-70">Download on the</div>
-                  <div className="text-xl leading-none font-semibold">App Store</div>
+                  <div className="text-[11px] leading-none mb-1 opacity-60 font-medium">Download on the</div>
+                  <div className="text-lg leading-none font-semibold">App Store</div>
                 </div>
               </button>
-              <button 
-                className="flex items-center gap-4 bg-background text-foreground px-8 py-5 rounded-2xl font-medium hover:bg-background/90 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
+              <button
+                className="flex items-center gap-4 bg-white/10 border border-white/20 text-background px-8 py-4 rounded-2xl font-medium hover:bg-white/15 transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-auto"
                 data-testid="button-download-android"
               >
-                <SiGoogleplay className="w-8 h-8" />
+                <SiGoogleplay className="w-7 h-7 flex-shrink-0" />
                 <div className="text-left">
-                  <div className="text-xs leading-none mb-1.5 opacity-70">GET IT ON</div>
-                  <div className="text-xl leading-none font-semibold">Google Play</div>
+                  <div className="text-[11px] leading-none mb-1 opacity-60 font-medium">GET IT ON</div>
+                  <div className="text-lg leading-none font-semibold">Google Play</div>
                 </div>
               </button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-border px-6 bg-card">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="py-10 border-t border-border px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
-             <div className="w-6 h-6 bg-primary/20 rounded-md flex items-center justify-center">
-              <RefreshCcw className="w-3 h-3 text-primary" />
-            </div>
-            <div className="font-semibold text-lg text-foreground">Recur</div>
+            <img src={recurIcon} alt="Recur icon" className="w-6 h-6 rounded-lg" />
+            <img src={recurLogoDark} alt="Recur" className="h-4 w-auto" />
           </div>
-          <div className="text-sm text-muted-foreground font-medium">
+          <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Recur. All rights reserved.
-          </div>
+          </p>
         </div>
       </footer>
     </main>
