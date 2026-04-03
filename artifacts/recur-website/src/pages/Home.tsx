@@ -19,7 +19,7 @@ const features = [
   {
     icon: <History className="w-6 h-6" />,
     title: "Progress you don't have to reset",
-    body: "Miss a week because of work, travel, or just life? Recur doesn't send you back to square one. It figures out where you are and eases you back in from there.",
+    body: "Miss a week because of work, travel, or just life? It doesn't send you back to square one or start you exactly where you left off. It figures out where you are and eases you back in from there.",
   },
   {
     icon: <RefreshCcw className="w-6 h-6" />,
