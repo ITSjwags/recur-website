@@ -75,53 +75,53 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="min-h-[90vh] grid md:grid-cols-2 overflow-hidden">
-        <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 pt-36 pb-20 md:pt-0 md:pb-0">
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={stagger}
-            className="flex flex-col items-start"
-          >
-            <motion.h1
-              variants={fadeUp}
-              className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
+      <section className="relative min-h-[90vh] overflow-hidden bg-foreground">
+        <img
+          src="/lifestyle-hero.png?v=2"
+          alt="Person doing home workout"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-50 mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
+        <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-14 lg:px-20 flex items-center min-h-[90vh]">
+          <div className="w-full md:w-1/2">
+            <motion.div
+              initial="hidden"
+              animate="show"
+              variants={stagger}
+              className="flex flex-col items-start pt-24 pb-20 md:py-0"
             >
-              Stop starting<br />over.
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed"
-            >
-              Strength training that adapts to your history.
-            </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
-              <a
-                href="#download"
-                className="flex items-center gap-3 border border-foreground/20 text-foreground px-6 py-3.5 rounded-full text-sm font-medium hover:bg-foreground/5 transition-all active:scale-95 whitespace-nowrap"
-                data-testid="button-hero-download"
+              <motion.h1
+                variants={fadeUp}
+                className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
               >
-                <SiApple className="w-4 h-4 flex-shrink-0" />
-                Download for iOS
-              </a>
-              <a
-                href="#download"
-                className="flex items-center gap-3 border border-foreground/20 text-foreground px-6 py-3.5 rounded-full text-sm font-medium hover:bg-foreground/5 transition-all active:scale-95 whitespace-nowrap"
-                data-testid="button-hero-android"
+                Stop starting<br />over.
+              </motion.h1>
+              <motion.p
+                variants={fadeUp}
+                className="text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed"
               >
-                <SiGoogleplay className="w-4 h-4 flex-shrink-0" />
-                Download for Android
-              </a>
+                Strength training that adapts to your history.
+              </motion.p>
+              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
+                <a
+                  href="#download"
+                  className="flex items-center gap-3 border border-foreground/20 text-foreground px-6 py-3.5 rounded-full text-sm font-medium hover:bg-foreground/5 transition-all active:scale-95 whitespace-nowrap"
+                  data-testid="button-hero-download"
+                >
+                  <SiApple className="w-4 h-4 flex-shrink-0" />
+                  Download for iOS
+                </a>
+                <a
+                  href="#download"
+                  className="flex items-center gap-3 border border-foreground/20 text-foreground px-6 py-3.5 rounded-full text-sm font-medium hover:bg-foreground/5 transition-all active:scale-95 whitespace-nowrap"
+                  data-testid="button-hero-android"
+                >
+                  <SiGoogleplay className="w-4 h-4 flex-shrink-0" />
+                  Download for Android
+                </a>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </div>
-        <div className="relative hidden md:block bg-foreground">
-          <img
-            src="/lifestyle-hero.png?v=2"
-            alt="Person doing home workout"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-50 mix-blend-luminosity"
-          />
-          <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-background via-background/60 to-transparent" />
+          </div>
         </div>
       </section>
 
