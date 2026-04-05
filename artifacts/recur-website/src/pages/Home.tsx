@@ -20,12 +20,12 @@ const features = [
   {
     icon: <History className="w-6 h-6" />,
     title: "Progress you don't have to reset",
-    body: "Miss a week because of work, travel, or just life? It doesn't send you back to square one or start you exactly where you left off. It figures out where you are and eases you back in from there.",
+    body: "No questionnaires about your age or fitness level. The app watches what you actually do, effort ratings, which exercises you swap, how your body responds, and builds from there. Real data, not self-reported guesses.",
   },
   {
     icon: <Zap className="w-6 h-6" />,
-    title: "No planning required",
-    body: "Open the app and it tells you exactly what to do. No picking exercises, no figuring out weights, no following a program from YouTube. Just a workout built for where you are right now.",
+    title: "Adapts to breaks automatically",
+    body: "Open the app after a week off, two weeks, a month. It already knows. Reads what happened and adjusts the next session, lighter where it needs to be, so you come back feeling good instead of demolished.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
@@ -34,8 +34,8 @@ const features = [
   },
   {
     icon: <TrendingUp className="w-6 h-6" />,
-    title: "Builds you up gradually",
-    body: "It starts at a level that makes sense for where you actually are and moves at a pace you can sustain. Not too easy, not too much too soon.",
+    title: "Built for home workouts",
+    body: "Dumbbells or bodyweight, that's all you need. No gym, no barbell, no complicated setup. Effective training built around what you already have at home, and what your body can actually handle right now.",
   },
 ];
 
