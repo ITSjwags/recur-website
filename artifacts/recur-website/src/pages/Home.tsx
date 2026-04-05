@@ -115,13 +115,12 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
-        <div className="relative hidden md:block">
+        <div className="relative hidden md:block bg-foreground">
           <img
             src="/lifestyle-hero.png?v=2"
             alt="Person doing home workout"
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-50 mix-blend-luminosity"
           />
-          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent" />
         </div>
       </section>
 
