@@ -1,0 +1,19 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Concept 1: Capital R where the diagonal leg becomes a sweeping return arc back to the base -->
+  <!-- The leg doesn't go straight — it loops wide right then curves back home -->
+
+  <!-- Stem: full left vertical -->
+  <path d="M28 22 L28 92" stroke="#3A6F73" stroke-width="11" stroke-linecap="round" fill="none"/>
+
+  <!-- D-bowl: R's top arch -->
+  <path d="M28 22 C28 22 72 22 72 44 C72 66 28 66 28 66"
+        stroke="#3A6F73" stroke-width="11" stroke-linecap="round" fill="none"/>
+
+  <!-- Return leg: starts at lower-right of bowl, sweeps wide right, curves back to stem base -->
+  <path d="M54 58 C90 52 92 92 28 92"
+        stroke="#3A6F73" stroke-width="11" stroke-linecap="round" fill="none"/>
+
+  <!-- Arrow: small indicator at return point (stem base) showing direction of return -->
+  <path d="M21 83 L28 95 L35 83"
+        stroke="#3A6F73" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

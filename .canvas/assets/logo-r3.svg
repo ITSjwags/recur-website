@@ -1,0 +1,19 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Concept 3: Abstract — a circular return arrow where the entry stroke is the R's leg -->
+  <!-- The arrow head is the "R" stem. The circle IS the recurrence. Clean, more logo-like. -->
+
+  <!-- Circular arc: nearly full circle, gap at upper-right -->
+  <!-- Center (60,62), radius 34 -->
+  <!-- Start: upper-right area ~(88,36), End: top ~(60,28) -->
+  <path d="M88 36 A34 34 0 1 0 60 28"
+        fill="none" stroke="#3A6F73" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Arrowhead at end (60,28) pointing LEFT — direction of CW motion at 12 o'clock -->
+  <path d="M66 20 L56 28 L66 36"
+        fill="none" stroke="#3A6F73" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Entry stroke from lower-right: a bold diagonal that implies the R's leg entering the circle -->
+  <!-- This stroke comes from outside (lower-right) into the circle, like the leg of R -->
+  <path d="M88 36 L98 22"
+        stroke="#3A6F73" stroke-width="10" stroke-linecap="round" fill="none"/>
+</svg>
