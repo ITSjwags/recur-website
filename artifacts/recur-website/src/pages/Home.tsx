@@ -121,7 +121,7 @@ export default function Home() {
             alt="Person doing home workout"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-50 mix-blend-luminosity"
           />
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background/80 to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-background via-background/60 to-transparent" />
         </div>
       </section>
 
