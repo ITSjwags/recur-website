@@ -1,17 +1,23 @@
 <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- Concept 2: Lowercase r where the arch closes into a full loop -->
-  <!-- The shoulder of the r doesn't terminate — it continues around and reconnects to the stem -->
-  <!-- This makes the r's arch a complete circuit: the letterform IS the return cycle -->
+  <!-- SVG text "r" in Inter, with a subtle return arc as a companion mark -->
+  <!-- Using system sans-serif as close to Inter as possible -->
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;display=swap');
+    </style>
+  </defs>
 
-  <!-- Stem: full left vertical -->
-  <path d="M32 90 L32 24" stroke="#3A6F73" stroke-width="11" stroke-linecap="round" fill="none"/>
+  <!-- Bold r letterform, left-aligned -->
+  <text x="10" y="88"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-weight="700"
+        font-size="88"
+        fill="#3A6F73">r</text>
 
-  <!-- Closed loop arch: from mid-stem, arcs right, curves all the way around, returns lower on stem -->
-  <!-- Goes: (32,46) → right → (80,60) → down → curves left → back to (32,76) -->
-  <path d="M32 46 C32 24 88 24 88 60 C88 92 32 92 32 76"
-        stroke="#3A6F73" stroke-width="11" stroke-linecap="round" fill="none"/>
-
-  <!-- Arrow at the return point showing direction of re-entry -->
-  <path d="M24 68 L32 80 L40 68"
-        stroke="#3A6F73" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Small return arc at top-right: a visual counterpart showing "recur" -->
+  <!-- Sits in the negative space upper-right of the r -->
+  <path d="M92 24 A14 14 0 1 0 80 12"
+        fill="none" stroke="#9FB8A0" stroke-width="5" stroke-linecap="round"/>
+  <path d="M74 16 L79 11 L84 18"
+        fill="none" stroke="#9FB8A0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
