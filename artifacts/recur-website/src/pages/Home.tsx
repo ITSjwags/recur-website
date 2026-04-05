@@ -75,8 +75,8 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-36 pb-24 md:pt-48 md:pb-32 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="min-h-[90vh] grid md:grid-cols-2 overflow-hidden">
+        <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 pt-36 pb-20 md:pt-0 md:pb-0">
           <motion.div
             initial="hidden"
             animate="show"
@@ -85,35 +85,43 @@ export default function Home() {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-[clamp(3.5rem,10vw,8rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
+              className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
             >
               Stop starting<br />over.
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed"
+              className="text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed"
             >
               Strength training that adapts to your history.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
               <a
                 href="#download"
-                className="flex items-center gap-3 border border-foreground/20 text-foreground px-8 py-4 rounded-full text-base font-medium hover:bg-foreground/5 transition-all active:scale-95"
+                className="flex items-center gap-3 border border-foreground/20 text-foreground px-6 py-3.5 rounded-full text-sm font-medium hover:bg-foreground/5 transition-all active:scale-95 whitespace-nowrap"
                 data-testid="button-hero-download"
               >
-                <SiApple className="w-5 h-5" />
+                <SiApple className="w-4 h-4 flex-shrink-0" />
                 Download for iOS
               </a>
               <a
                 href="#download"
-                className="flex items-center gap-3 border border-foreground/20 text-foreground px-8 py-4 rounded-full text-base font-medium hover:bg-foreground/5 transition-all active:scale-95"
+                className="flex items-center gap-3 border border-foreground/20 text-foreground px-6 py-3.5 rounded-full text-sm font-medium hover:bg-foreground/5 transition-all active:scale-95 whitespace-nowrap"
                 data-testid="button-hero-android"
               >
-                <SiGoogleplay className="w-4 h-4" />
+                <SiGoogleplay className="w-4 h-4 flex-shrink-0" />
                 Download for Android
               </a>
             </motion.div>
           </motion.div>
+        </div>
+        <div className="relative hidden md:block">
+          <img
+            src="/lifestyle.png"
+            alt="Person doing home workout"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent" />
         </div>
       </section>
 
