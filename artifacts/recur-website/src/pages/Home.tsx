@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { SiApple, SiGoogleplay } from "react-icons/si";
 import { History, Zap, ShieldCheck, TrendingUp } from "lucide-react";
@@ -296,6 +297,10 @@ export default function Home() {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Recur. All rights reserved.
           </p>
+          <div className="flex gap-6 text-sm text-muted-foreground">
+            <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+          </div>
         </div>
       </footer>
     </main>
