@@ -1,4 +1,5 @@
 uploads = []
+outputs = []
 
 [[generated]]
 id = "6isl1m-XzOZ8ytIOGfQZy"
@@ -11,9 +12,3 @@ id = "6NZbDuhhztNUj0bMPhlUG"
 uri = "file://artifacts/recur-website/public/lifestyle-hero.png"
 type = "image"
 title = "generated_image"
-
-[[outputs]]
-id = "P2jEFe2SfY7zOpKwgMxck"
-uri = "file://artifacts/recur-website/public/home-workout.jpg"
-type = "image"
-title = "person working out with dumbbells at home, natural lighting, calm environment"
