@@ -127,7 +127,7 @@ export default function Home() {
 
       {/* Bold value prop band */}
       <section className="bg-foreground text-background py-20 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +247,7 @@ export default function Home() {
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-6xl mx-auto text-center relative z-10">
           <motion.div
             initial="hidden"
             whileInView="show"
