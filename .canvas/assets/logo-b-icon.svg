@@ -1,11 +1,11 @@
 <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- Circle center (60,60), radius 38 -->
-  <!-- Arc starts at ~1 o'clock (79,27), goes clockwise ~330° to just before 12 o'clock (63,22) -->
-  <!-- Gap sits at the top — clean and readable -->
-  <path d="M79 27 A38 38 0 1 1 63 22"
-        fill="none" stroke="#3A6F73" stroke-width="8" stroke-linecap="round"/>
-  <!-- Arrowhead at (63,22): tangent at this point is nearly horizontal-left -->
-  <!-- V-shape: base near arc end, tip extending in direction of motion (left) -->
-  <path d="M62 16 L52 22 L62 28"
-        fill="none" stroke="#3A6F73" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- U-turn / return arrow — the "come back" concept, clean and unambiguous -->
+  <!-- Left arm: goes down -->
+  <!-- U-curve: sweeps across the bottom -->
+  <!-- Right arm: comes back up with arrowhead at top -->
+  <path d="M32 36 L32 70 C32 94 88 94 88 70 L88 36"
+        stroke="#3A6F73" stroke-width="11" stroke-linecap="round" fill="none"/>
+  <!-- Arrowhead at top of right arm pointing up -->
+  <path d="M79 48 L88 32 L97 48"
+        stroke="#3A6F73" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
 </svg>
