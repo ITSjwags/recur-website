@@ -1,8 +1,8 @@
 <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
   <rect width="120" height="120" rx="26" fill="#3A6F73"/>
   <!-- r: vertical stem -->
-  <path d="M40 90 L40 30" stroke="white" stroke-width="9.5" stroke-linecap="round" fill="none"/>
-  <!-- r: arch with return curl — smooth bezier from stem, arcs up-right, returns down-left -->
-  <path d="M40 52 C40 28 80 28 80 54 C80 68 70 76 60 72"
+  <path d="M38 90 L38 28" stroke="white" stroke-width="9.5" stroke-linecap="round" fill="none"/>
+  <!-- r: shoulder arch — branches mid-stem, arcs up and right, ends at shoulder height (no descender) -->
+  <path d="M38 48 C38 24 80 24 80 50"
         stroke="white" stroke-width="9.5" stroke-linecap="round" fill="none"/>
 </svg>

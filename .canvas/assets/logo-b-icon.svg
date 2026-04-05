@@ -1,14 +1,11 @@
 <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- Circular arc: starts at ~4-o'clock, goes counter-clockwise nearly full circle -->
-  <!-- Center (60,60), radius 38 -->
-  <!-- Start: angle 110deg → (60+38*cos110, 60+38*sin110) = (60-13, 60+35.7) = (47, 96) -->
-  <!-- End: angle 80deg → (60+38*cos80, 60+38*sin80) = (60+6.6, 60+37.4) = (67, 97) -->
-  <!-- Large CCW arc from (47,96) to (67,97) covers ~350deg -->
-  <path d="M47 96 A38 38 0 1 1 67 97"
+  <!-- Circle center (60,60), radius 38 -->
+  <!-- Arc starts at ~1 o'clock (79,27), goes clockwise ~330° to just before 12 o'clock (63,22) -->
+  <!-- Gap sits at the top — clean and readable -->
+  <path d="M79 27 A38 38 0 1 1 63 22"
         fill="none" stroke="#3A6F73" stroke-width="8" stroke-linecap="round"/>
-  <!-- Arrowhead at end (67,97) pointing roughly right (CCW tangent direction at 80deg) -->
-  <!-- Tangent CCW at 80deg: direction = (-sin80, cos80) = (-0.985, 0.174) → left-down... -->
-  <!-- Actually let me place arrow pointing in the logical "return" direction -->
-  <path d="M58 88 L67 97 L76 88"
+  <!-- Arrowhead at (63,22): tangent at this point is nearly horizontal-left -->
+  <!-- V-shape: base near arc end, tip extending in direction of motion (left) -->
+  <path d="M62 16 L52 22 L62 28"
         fill="none" stroke="#3A6F73" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
