@@ -117,7 +117,7 @@ export default function Home() {
         </div>
         <div className="relative hidden md:block">
           <img
-            src="/lifestyle-hero.png"
+            src="/lifestyle-hero.png?v=2"
             alt="Person doing home workout"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
