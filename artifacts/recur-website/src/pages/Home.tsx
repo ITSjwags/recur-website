@@ -48,7 +48,7 @@ const forWho = [
 
 export default function Home() {
   useEffect(() => {
-    document.title = "Recur | Consistency without flare-ups";
+    document.title = "Recur | Back to it. Every time.";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute("content", "Strength training for adults who train at home and want to stay consistent without getting hurt or burned out. Adapts to breaks, works around pain, builds momentum that lasts.");
@@ -255,7 +255,7 @@ export default function Home() {
             variants={stagger}
           >
             <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
-              Consistency without<br />flare-ups.
+              Back to it.<br />Every time.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-lg text-background/60 mb-14 max-w-md mx-auto leading-relaxed">
               For people who just want to stay active, without the guilt, the injuries, or starting over. Free to download.
