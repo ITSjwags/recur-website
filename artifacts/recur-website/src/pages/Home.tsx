@@ -39,7 +39,6 @@ const features = [
   },
 ];
 
-const forWhoText = "You've trained before. You've stopped before. Maybe you've got an old injury that flares up, or a schedule that makes consistency hard. Recur is for people who know that perfect weeks don't exist and want an app that gets it.";
 
 export default function Home() {
   useEffect(() => {
@@ -93,9 +92,15 @@ export default function Home() {
               </motion.h1>
               <motion.p
                 variants={fadeUp}
-                className="text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed"
+                className="text-xl md:text-2xl text-muted-foreground max-w-md mb-5 leading-relaxed"
               >
                 Strength training that adapts to your history.
+              </motion.p>
+              <motion.p
+                variants={fadeUp}
+                className="text-base text-muted-foreground/70 max-w-md mb-10 leading-relaxed"
+              >
+                Adapts to breaks. Works around pain. Builds momentum that lasts.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
                 <a
@@ -130,9 +135,8 @@ export default function Home() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight"
           >
-            Adapts to breaks.<br />
-            Works around pain.<br />
-            <span className="text-primary">Builds momentum that lasts.</span>
+            Your history is data,<br />
+            <span className="text-primary">not baggage.</span>
           </motion.p>
         </div>
       </section>
@@ -160,7 +164,8 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg md:text-xl text-muted-foreground leading-relaxed pt-1 md:pt-10"
           >
-            {forWhoText}
+            You've trained before. You've stopped before. Maybe you've got an old injury that flares up, or a schedule that makes consistency hard.{" "}
+            <strong className="text-foreground font-semibold">Recur is for people who know that perfect weeks don't exist and want an app that gets it.</strong>
           </motion.p>
         </div>
       </section>
