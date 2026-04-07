@@ -189,13 +189,13 @@ export default function Home() {
               duration: 0.7,
               ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
             }}
-            className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-[hsl(150,13%,97%)]"
           >
             Adapts to breaks.
             <br />
             Works around pain.
             <br />
-            <span className="text-primary">Builds momentum that lasts.</span>
+            <span className="text-[hsl(184,38%,58%)]">Builds momentum that lasts.</span>
           </motion.p>
         </div>
       </section>
