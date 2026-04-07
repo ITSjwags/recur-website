@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { History, Zap, ShieldCheck, Home as HomeIcon } from "lucide-react";
+import { History, Zap, ShieldCheck, Home as HomeIcon, Sun, Moon } from "lucide-react";
 import recurLogoDark from "@assets/recur_1775218108653.png";
 import recurIcon from "@assets/icon_1775218102896.png";
+import { useTheme } from "@/hooks/useTheme";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -38,7 +39,6 @@ const features = [
   },
 ];
 
-
 const encode = (data: Record<string, string>) =>
   Object.keys(data)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
@@ -49,6 +49,7 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,31 +79,41 @@ export default function Home() {
 
   return (
     <main className="min-h-[100dvh] bg-background text-foreground overflow-x-hidden">
+
       {/* Nav */}
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border/40">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <img src={recurIcon} alt="Recur icon" className="w-8 h-8 rounded-xl" />
-            <img src={recurLogoDark} alt="Recur" className="h-5 w-auto" />
+            <img src={recurLogoDark} alt="Recur" className="h-5 w-auto dark:invert" />
           </div>
-          <a
-            href="#waitlist"
-            className="text-sm font-semibold px-5 py-2 rounded-full bg-foreground text-background hover:bg-foreground/85 transition-colors"
-            data-testid="link-nav-waitlist"
-          >
-            Join waitlist
-          </a>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+              className="w-9 h-9 flex items-center justify-center rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+            <a
+              href="#waitlist"
+              className="text-sm font-semibold px-5 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/85 transition-colors"
+              data-testid="link-nav-waitlist"
+            >
+              Join waitlist
+            </a>
+          </div>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="relative min-h-[90vh] overflow-hidden bg-foreground">
+      {/* Hero — always dark, immersive */}
+      <section className="relative min-h-[90vh] overflow-hidden bg-[hsl(200,16%,10%)]">
         <img
           src="/lifestyle-hero.png?v=2"
           alt="Person doing home workout"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-50 mix-blend-luminosity"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-luminosity"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(200,16%,10%)] via-[hsl(200,16%,10%)]/80 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 flex items-center min-h-[90vh]">
           <div className="w-full md:w-1/2">
             <motion.div
@@ -111,22 +122,28 @@ export default function Home() {
               variants={stagger}
               className="flex flex-col items-start pt-24 pb-20 md:py-0"
             >
+              <motion.p
+                variants={fadeUp}
+                className="text-xs font-semibold tracking-[0.15em] uppercase text-[hsl(184,38%,52%)] mb-5"
+              >
+                Ready when you are.
+              </motion.p>
               <motion.h1
                 variants={fadeUp}
-                className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
+                className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-[hsl(150,16%,96%)] mb-6"
               >
                 Stop starting<br />over.
               </motion.h1>
               <motion.p
                 variants={fadeUp}
-                className="text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed"
+                className="text-xl md:text-2xl text-[hsl(160,8%,62%)] max-w-md mb-10 leading-relaxed"
               >
                 Strength training that adapts to your history.
               </motion.p>
               <motion.div variants={fadeUp}>
                 <a
                   href="#waitlist"
-                  className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-foreground/85 transition-all active:scale-95 whitespace-nowrap"
+                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-primary/85 transition-all active:scale-95 whitespace-nowrap"
                   data-testid="button-hero-waitlist"
                 >
                   Get early access
@@ -137,15 +154,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bold value prop band */}
-      <section className="bg-foreground text-background py-20">
+      {/* Bold value prop band — always dark */}
+      <section className="bg-[hsl(200,16%,10%)] py-20 border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-[hsl(150,16%,96%)]"
           >
             Adapts to breaks.<br />
             Works around pain.<br />
@@ -217,7 +234,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Lifestyle image block */}
+      {/* Lifestyle image block — always dark */}
       <section className="py-10 pb-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -225,19 +242,19 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-3xl overflow-hidden relative bg-foreground"
+            className="rounded-3xl overflow-hidden relative bg-[hsl(200,16%,10%)]"
           >
             <img
               src="/lifestyle.png"
               alt="Person working out calmly at home with dumbbells"
-              className="w-full h-[420px] md:h-[560px] object-cover opacity-50 mix-blend-luminosity"
+              className="w-full h-[420px] md:h-[560px] object-cover opacity-40 mix-blend-luminosity"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
               }}
             />
             <div className="absolute inset-0 flex items-end p-10 md:p-16">
               <div className="max-w-lg">
-                <p className="text-3xl md:text-5xl font-semibold text-background leading-tight tracking-tight">
+                <p className="text-3xl md:text-5xl font-semibold text-[hsl(150,16%,96%)] leading-tight tracking-tight">
                   Show up when you can. It's enough.
                 </p>
               </div>
@@ -246,10 +263,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Waitlist CTA */}
-      <section id="waitlist" className="py-32 bg-foreground text-background relative overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+      {/* Waitlist CTA — always dark */}
+      <section id="waitlist" className="py-32 bg-[hsl(200,16%,10%)] relative overflow-hidden border-t border-white/5">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-primary/8 blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <motion.div
@@ -258,10 +275,10 @@ export default function Home() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
+            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-[hsl(150,16%,96%)]">
               Back to it.<br />Every time.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-background/60 mb-12 max-w-md mx-auto leading-relaxed">
+            <motion.p variants={fadeUp} className="text-lg text-[hsl(160,8%,55%)] mb-12 max-w-md mx-auto leading-relaxed">
               Recur is launching soon. Drop your email and we'll let you know when it's ready.
             </motion.p>
 
@@ -269,7 +286,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-background/80 text-lg font-medium"
+                className="text-[hsl(150,16%,96%)]/80 text-lg font-medium"
               >
                 You're on the list. We'll be in touch.
               </motion.div>
@@ -290,12 +307,12 @@ export default function Home() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-5 py-3.5 rounded-full bg-background/10 border border-background/20 text-background placeholder:text-background/40 focus:outline-none focus:border-background/50 text-sm"
+                  className="flex-1 px-5 py-3.5 rounded-full bg-white/8 border border-white/15 text-[hsl(150,16%,96%)] placeholder:text-[hsl(160,8%,42%)] focus:outline-none focus:border-white/35 text-sm"
                 />
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-6 py-3.5 rounded-full bg-background text-foreground text-sm font-semibold hover:bg-background/90 transition-all active:scale-95 disabled:opacity-60 whitespace-nowrap"
+                  className="px-6 py-3.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/85 transition-all active:scale-95 disabled:opacity-60 whitespace-nowrap"
                   data-testid="button-waitlist-submit"
                 >
                   {submitting ? "Joining…" : "Join waitlist"}
@@ -304,14 +321,14 @@ export default function Home() {
             )}
 
             {formError && (
-              <p className="mt-4 text-sm text-background/50">
+              <p className="mt-4 text-sm text-[hsl(160,8%,42%)]">
                 Something went wrong. Try again or email us directly.
               </p>
             )}
 
-            <motion.p variants={fadeUp} className="mt-6 text-xs text-background/30">
+            <motion.p variants={fadeUp} className="mt-6 text-xs text-[hsl(160,8%,35%)]">
               No spam, ever.{" "}
-              <Link href="/privacy" className="underline underline-offset-2 hover:text-background/50 transition-colors">
+              <Link href="/privacy" className="underline underline-offset-2 hover:text-[hsl(160,8%,55%)] transition-colors">
                 Privacy Policy
               </Link>
             </motion.p>
@@ -324,7 +341,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <img src={recurIcon} alt="Recur icon" className="w-6 h-6 rounded-lg" />
-            <img src={recurLogoDark} alt="Recur" className="h-4 w-auto" />
+            <img src={recurLogoDark} alt="Recur" className="h-4 w-auto dark:invert" />
           </div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Recur. All rights reserved.
