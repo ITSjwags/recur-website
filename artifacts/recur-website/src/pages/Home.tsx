@@ -287,12 +287,12 @@ export default function Home() {
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
             }}
-            className="rounded-3xl overflow-hidden relative bg-foreground"
+            className="rounded-3xl overflow-hidden relative bg-foreground dark:bg-[hsl(200,14%,14%)]"
           >
             <img
               src="/lifestyle.png"
               alt="Person working out calmly at home with dumbbells"
-              className="w-full h-[420px] md:h-[560px] object-cover opacity-40 mix-blend-luminosity"
+              className="w-full h-[420px] md:h-[560px] object-cover opacity-40 mix-blend-luminosity dark:opacity-60 dark:mix-blend-normal"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
               }}
