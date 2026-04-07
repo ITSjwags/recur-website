@@ -20,32 +20,26 @@ const features = [
   {
     icon: <History className="w-6 h-6" />,
     title: "Progress you don't have to reset",
-    body: "No questionnaires about your age or fitness level. The app watches what you actually do, effort ratings, which exercises you swap, how your body responds, and builds from there. Real data, not self-reported guesses.",
-  },
-  {
-    icon: <Zap className="w-6 h-6" />,
-    title: "Adapts to breaks automatically",
-    body: "Open the app after a week off, two weeks, a month. It already knows. Reads what happened and adjusts the next session, lighter where it needs to be, so you come back feeling good instead of demolished.",
+    body: "No questionnaires. The app watches what you actually do, effort ratings, which exercises you swap, how your body responds, and builds from there. Take a week off? We automatically ease you back in. No punishment, no starting over.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: "Works around pain, not through it",
-    body: "That shoulder thing from a few years back. The knee that flares up. Tell the app and it swaps to something that doesn't aggravate it, so you can still show up.",
+    body: "Flag an ache, we route around it. Shoulders, knees, back. The app learns what bothers you and keeps you moving without aggravating it.",
+  },
+  {
+    icon: <Zap className="w-6 h-6" />,
+    title: "Just tap start",
+    body: "No planning, no decision fatigue. We generate your workout based on what you need today, so the hardest part is just showing up.",
   },
   {
     icon: <TrendingUp className="w-6 h-6" />,
     title: "Built for home workouts",
-    body: "Dumbbells or bodyweight, that's all you need. No gym, no barbell, no complicated setup. Effective training built around what you already have at home, and what your body can actually handle right now.",
+    body: "Dumbbells or bodyweight, that's all you need. No gym, no barbell, no complicated setup. Real strength training built around what you already have at home.",
   },
 ];
 
-const forWho = [
-  "You've downloaded fitness apps before and stopped using them",
-  "You have an old injury that flares up occasionally",
-  "Work, kids, or travel make consistent exercise hard",
-  "You just want to feel better and stay active, not train for a competition",
-  "You've started and stopped enough times to be skeptical of yet another app",
-];
+const forWhoText = "You've trained before. You've stopped before. Maybe you've got an old injury that flares up, or a schedule that makes consistency hard. Recur is for people who know that perfect weeks don't exist and want an app that gets it.";
 
 export default function Home() {
   useEffect(() => {
@@ -156,27 +150,18 @@ export default function Home() {
               Who it's for
             </p>
             <h2 className="text-3xl md:text-4xl font-semibold leading-snug tracking-tight">
-              Built for people with<br />a history.
+              Built for bodies<br />with history.
             </h2>
           </motion.div>
-          <motion.ul
-            initial="hidden"
-            whileInView="show"
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-            className="flex flex-col gap-4 pt-1 md:pt-10"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-lg md:text-xl text-muted-foreground leading-relaxed pt-1 md:pt-10"
           >
-            {forWho.map((item, i) => (
-              <motion.li
-                key={i}
-                variants={fadeUp}
-                className="flex items-start gap-4 text-base text-foreground leading-relaxed"
-              >
-                <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-primary" />
-                {item}
-              </motion.li>
-            ))}
-          </motion.ul>
+            {forWhoText}
+          </motion.p>
         </div>
       </section>
 
