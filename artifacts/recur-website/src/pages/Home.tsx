@@ -292,7 +292,7 @@ export default function Home() {
             <img
               src="/lifestyle.png"
               alt="Person working out calmly at home with dumbbells"
-              className="w-full h-[420px] md:h-[560px] object-cover opacity-40 mix-blend-luminosity dark:opacity-60 dark:mix-blend-normal"
+              className="w-full h-[420px] md:h-[560px] object-cover opacity-40 mix-blend-luminosity dark:opacity-40 dark:mix-blend-luminosity"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
               }}
