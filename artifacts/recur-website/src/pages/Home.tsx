@@ -1,7 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { SiApple, SiGoogleplay } from "react-icons/si";
 import { History, Zap, ShieldCheck, Home as HomeIcon } from "lucide-react";
 import recurLogoDark from "@assets/recur_1775218108653.png";
 import recurIcon from "@assets/icon_1775218102896.png";
@@ -40,7 +39,35 @@ const features = [
 ];
 
 
+const encode = (data: Record<string, string>) =>
+  Object.keys(data)
+    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
+    .join("&");
+
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setFormError(false);
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "waitlist", email }),
+      });
+      setSubmitted(true);
+    } catch {
+      setFormError(true);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   useEffect(() => {
     document.title = "Recur | Back to it. Every time.";
     const meta = document.querySelector('meta[name="description"]');
@@ -59,11 +86,11 @@ export default function Home() {
             <img src={recurLogoDark} alt="Recur" className="h-5 w-auto" />
           </div>
           <a
-            href="#download"
+            href="#waitlist"
             className="text-sm font-semibold px-5 py-2 rounded-full bg-foreground text-background hover:bg-foreground/85 transition-colors"
-            data-testid="link-nav-download"
+            data-testid="link-nav-waitlist"
           >
-            Get the app
+            Join waitlist
           </a>
         </div>
       </nav>
@@ -96,22 +123,13 @@ export default function Home() {
               >
                 Strength training that adapts to your history.
               </motion.p>
-              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
+              <motion.div variants={fadeUp}>
                 <a
-                  href="#download"
-                  className="flex items-center gap-3 border border-foreground/20 text-foreground px-6 py-3.5 rounded-full text-sm font-medium hover:bg-foreground/5 transition-all active:scale-95 whitespace-nowrap"
-                  data-testid="button-hero-download"
+                  href="#waitlist"
+                  className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-foreground/85 transition-all active:scale-95 whitespace-nowrap"
+                  data-testid="button-hero-waitlist"
                 >
-                  <SiApple className="w-4 h-4 flex-shrink-0" />
-                  Download for iOS
-                </a>
-                <a
-                  href="#download"
-                  className="flex items-center gap-3 border border-foreground/20 text-foreground px-6 py-3.5 rounded-full text-sm font-medium hover:bg-foreground/5 transition-all active:scale-95 whitespace-nowrap"
-                  data-testid="button-hero-android"
-                >
-                  <SiGoogleplay className="w-4 h-4 flex-shrink-0" />
-                  Download for Android
+                  Get early access
                 </a>
               </motion.div>
             </motion.div>
@@ -228,8 +246,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Download CTA */}
-      <section id="download" className="py-32 bg-foreground text-background relative overflow-hidden">
+      {/* Waitlist CTA */}
+      <section id="waitlist" className="py-32 bg-foreground text-background relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
@@ -243,31 +261,60 @@ export default function Home() {
             <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
               Back to it.<br />Every time.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-background/60 mb-14 max-w-md mx-auto leading-relaxed">
-              For people who just want to stay active, without the guilt, the injuries, or starting over. Free to download.
+            <motion.p variants={fadeUp} className="text-lg text-background/60 mb-12 max-w-md mx-auto leading-relaxed">
+              Recur is launching soon. Drop your email and we'll let you know when it's ready.
             </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                className="flex items-center gap-4 bg-background text-foreground px-8 py-4 rounded-2xl font-medium hover:bg-background/90 transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-auto"
-                data-testid="button-download-ios"
+
+            {submitted ? (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-background/80 text-lg font-medium"
               >
-                <SiApple className="w-7 h-7 flex-shrink-0" />
-                <div className="text-left">
-                  <div className="text-[11px] leading-none mb-1 opacity-60 font-medium">Download on the</div>
-                  <div className="text-lg leading-none font-semibold">App Store</div>
-                </div>
-              </button>
-              <button
-                className="flex items-center gap-4 bg-background/10 border border-background/20 text-background px-8 py-4 rounded-2xl font-medium hover:bg-background/15 transition-all hover:scale-[1.02] active:scale-95 w-full sm:w-auto"
-                data-testid="button-download-android"
+                You're on the list. We'll be in touch.
+              </motion.div>
+            ) : (
+              <motion.form
+                variants={fadeUp}
+                name="waitlist"
+                method="POST"
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"
               >
-                <SiGoogleplay className="w-7 h-7 flex-shrink-0" />
-                <div className="text-left">
-                  <div className="text-[11px] leading-none mb-1 opacity-60 font-medium">GET IT ON</div>
-                  <div className="text-lg leading-none font-semibold">Google Play</div>
-                </div>
-              </button>
-            </motion.div>
+                <input type="hidden" name="form-name" value="waitlist" />
+                <input type="hidden" name="bot-field" />
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 px-5 py-3.5 rounded-full bg-background/10 border border-background/20 text-background placeholder:text-background/40 focus:outline-none focus:border-background/50 text-sm"
+                />
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="px-6 py-3.5 rounded-full bg-background text-foreground text-sm font-semibold hover:bg-background/90 transition-all active:scale-95 disabled:opacity-60 whitespace-nowrap"
+                  data-testid="button-waitlist-submit"
+                >
+                  {submitting ? "Joining…" : "Join waitlist"}
+                </button>
+              </motion.form>
+            )}
+
+            {formError && (
+              <p className="mt-4 text-sm text-background/50">
+                Something went wrong. Try again or email us directly.
+              </p>
+            )}
+
+            <motion.p variants={fadeUp} className="mt-6 text-xs text-background/30">
+              No spam, ever.{" "}
+              <Link href="/privacy" className="underline underline-offset-2 hover:text-background/50 transition-colors">
+                Privacy Policy
+              </Link>
+            </motion.p>
           </motion.div>
         </div>
       </section>
