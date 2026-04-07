@@ -135,8 +135,8 @@ export default function Home() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight"
           >
-            Your history is data,<br />
-            <span className="text-primary">not baggage.</span>
+            Missing a week<br />
+            <span className="text-primary">is not starting over.</span>
           </motion.p>
         </div>
       </section>
@@ -165,7 +165,7 @@ export default function Home() {
             className="text-lg md:text-xl text-muted-foreground leading-relaxed pt-1 md:pt-10"
           >
             You've trained before. You've stopped before. Maybe you've got an old injury that flares up, or a schedule that makes consistency hard.{" "}
-            <strong className="text-foreground font-semibold">Recur is for people who know that perfect weeks don't exist and want an app that gets it.</strong>
+            Recur is for people who know that <strong className="text-foreground font-semibold">perfect weeks don't exist</strong> and want an app that gets it.
           </motion.p>
         </div>
       </section>
