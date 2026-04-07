@@ -120,8 +120,8 @@ export default function Home() {
       </section>
 
       {/* Bold value prop band */}
-      <section className="bg-foreground text-background py-20 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="bg-foreground text-background py-20">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,8 +137,8 @@ export default function Home() {
       </section>
 
       {/* Who this is for */}
-      <section className="py-28 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <section className="py-28">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -166,8 +166,8 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="py-24 px-6 bg-card border-y border-border/60">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-24 bg-card border-y border-border/60">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -200,8 +200,8 @@ export default function Home() {
       </section>
 
       {/* Lifestyle image block */}
-      <section className="py-10 px-6 pb-24">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-10 pb-24">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -229,11 +229,11 @@ export default function Home() {
       </section>
 
       {/* Download CTA */}
-      <section id="download" className="py-32 px-6 bg-foreground text-background relative overflow-hidden">
+      <section id="download" className="py-32 bg-foreground text-background relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-accent/10 blur-3xl pointer-events-none" />
 
-        <div className="max-w-6xl mx-auto text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -273,8 +273,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-10 border-t border-border px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <footer className="py-10 border-t border-border">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <img src={recurIcon} alt="Recur icon" className="w-6 h-6 rounded-lg" />
             <img src={recurLogoDark} alt="Recur" className="h-4 w-auto" />
