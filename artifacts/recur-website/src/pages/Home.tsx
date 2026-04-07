@@ -20,7 +20,7 @@ const features = [
   {
     icon: <History className="w-6 h-6" />,
     title: "Progress you don't have to reset",
-    body: "No questionnaires. The app watches what you actually do, effort ratings, which exercises you swap, how your body responds, and builds from there. Take a week off? We automatically ease you back in. No punishment, no starting over.",
+    body: "No questionnaires. The app watches what you actually do, effort ratings, which exercises you swap, how your body responds, and builds from there. Take a couple weeks off? We automatically ease you back in. No punishment, no starting over.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
