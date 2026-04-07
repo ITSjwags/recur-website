@@ -122,12 +122,6 @@ export default function Home() {
               variants={stagger}
               className="flex flex-col items-start pt-24 pb-20 md:py-0"
             >
-              <motion.p
-                variants={fadeUp}
-                className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-5"
-              >
-                Ready when you are.
-              </motion.p>
               <motion.h1
                 variants={fadeUp}
                 className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
@@ -275,6 +269,9 @@ export default function Home() {
             viewport={{ once: true }}
             variants={stagger}
           >
+            <motion.p variants={fadeUp} className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-5">
+              Ready when you are.
+            </motion.p>
             <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-[hsl(150,16%,96%)]">
               Back to it.<br />Every time.
             </motion.h2>
