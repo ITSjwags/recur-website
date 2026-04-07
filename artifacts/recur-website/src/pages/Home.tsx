@@ -76,7 +76,7 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover object-center opacity-50 mix-blend-luminosity"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
-        <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-14 lg:px-20 flex items-center min-h-[90vh]">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 flex items-center min-h-[90vh]">
           <div className="w-full md:w-1/2">
             <motion.div
               initial="hidden"
