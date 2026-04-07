@@ -1,0 +1,6 @@
+[build]
+  command = "pnpm install && pnpm --filter @workspace/recur-website run build"
+  publish = "artifacts/recur-website/dist/public"
+
+[build.environment]
+  NODE_ENV = "production"

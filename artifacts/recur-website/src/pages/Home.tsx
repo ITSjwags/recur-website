@@ -1,14 +1,28 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { History, Zap, ShieldCheck, Home as HomeIcon, Sun, Moon } from "lucide-react";
+import {
+  History,
+  Zap,
+  ShieldCheck,
+  Home as HomeIcon,
+  Sun,
+  Moon,
+} from "lucide-react";
 import recurLogoDark from "@assets/recur_1775218108653.png";
 import recurIcon from "@assets/icon_1775218102896.png";
 import { useTheme } from "@/hooks/useTheme";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    },
+  },
 };
 
 const stagger = {
@@ -73,19 +87,29 @@ export default function Home() {
     document.title = "Recur | Back to it. Every time.";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
-      meta.setAttribute("content", "Strength training for adults who train at home and want to stay consistent without getting hurt or burned out. Adapts to breaks, works around pain, builds momentum that lasts.");
+      meta.setAttribute(
+        "content",
+        "Strength training for adults who train at home and want to stay consistent without getting hurt or burned out. Adapts to breaks, works around pain, builds momentum that lasts.",
+      );
     }
   }, []);
 
   return (
     <main className="min-h-[100dvh] bg-background text-foreground overflow-x-hidden">
-
       {/* Nav */}
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border/40">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <img src={recurIcon} alt="Recur icon" className="w-8 h-8 rounded-xl" />
-            <img src={recurLogoDark} alt="Recur" className="h-5 w-auto dark:invert" />
+            <img
+              src={recurIcon}
+              alt="Recur icon"
+              className="w-8 h-8 rounded-xl"
+            />
+            <img
+              src={recurLogoDark}
+              alt="Recur"
+              className="h-5 w-auto dark:invert"
+            />
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -93,7 +117,11 @@ export default function Home() {
               aria-label="Toggle dark mode"
               className="w-9 h-9 flex items-center justify-center rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors"
             >
-              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4" />
+              ) : (
+                <Moon className="w-4 h-4" />
+              )}
             </button>
             <a
               href="#waitlist"
@@ -126,7 +154,9 @@ export default function Home() {
                 variants={fadeUp}
                 className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
               >
-                Stop starting<br />over.
+                Stop starting
+                <br />
+                over.
               </motion.h1>
               <motion.p
                 variants={fadeUp}
@@ -155,11 +185,16 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-[hsl(150,16%,96%)]"
+            transition={{
+              duration: 0.7,
+              ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+            }}
+            className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight"
           >
-            Adapts to breaks.<br />
-            Works around pain.<br />
+            Adapts to breaks.
+            <br />
+            Works around pain.
+            <br />
             <span className="text-primary">Builds momentum that lasts.</span>
           </motion.p>
         </div>
@@ -178,7 +213,9 @@ export default function Home() {
               Who it's for
             </p>
             <h2 className="text-3xl md:text-4xl font-semibold leading-snug tracking-tight">
-              Built for bodies<br />with history.
+              Built for bodies
+              <br />
+              with history.
             </h2>
           </motion.div>
           <motion.p
@@ -188,8 +225,13 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg md:text-xl text-muted-foreground leading-relaxed pt-1 md:pt-10"
           >
-            You've trained before. You've stopped before. Maybe you've got an old injury that flares up, or a schedule that makes consistency hard.{" "}
-            <strong className="text-foreground font-semibold">Recur is for people who know that perfect weeks don't exist</strong> and want an app that gets it.
+            You've trained before. You've stopped before. Maybe you've got an
+            old injury that flares up, or a schedule that makes consistency
+            hard.{" "}
+            <strong className="text-foreground font-semibold">
+              Recur is for people who know that perfect weeks don't exist
+            </strong>{" "}
+            and want an app that gets it.
           </motion.p>
         </div>
       </section>
@@ -212,7 +254,11 @@ export default function Home() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: (i % 2) * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  delay: (i % 2) * 0.1,
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+                }}
                 className="flex gap-6"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mt-0.5">
@@ -220,7 +266,9 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-3">{f.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{f.body}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {f.body}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -235,8 +283,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-3xl overflow-hidden relative bg-[hsl(200,16%,10%)]"
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+            }}
+            className="rounded-3xl overflow-hidden relative bg-foreground"
           >
             <img
               src="/lifestyle.png"
@@ -258,7 +309,10 @@ export default function Home() {
       </section>
 
       {/* Waitlist CTA — always dark */}
-      <section id="waitlist" className="py-32 bg-[hsl(200,16%,10%)] relative overflow-hidden border-t border-white/5">
+      <section
+        id="waitlist"
+        className="py-32 bg-[hsl(200,16%,10%)] relative overflow-hidden border-t border-white/5"
+      >
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-primary/8 blur-3xl pointer-events-none" />
 
@@ -269,14 +323,26 @@ export default function Home() {
             viewport={{ once: true }}
             variants={stagger}
           >
-            <motion.p variants={fadeUp} className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-5">
+            <motion.p
+              variants={fadeUp}
+              className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-5"
+            >
               Ready when you are.
             </motion.p>
-            <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-[hsl(150,16%,96%)]">
-              Back to it.<br />Every time.
+            <motion.h2
+              variants={fadeUp}
+              className="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-[hsl(150,16%,96%)]"
+            >
+              Back to it.
+              <br />
+              Every time.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-lg text-[hsl(160,8%,55%)] mb-12 max-w-md mx-auto leading-relaxed">
-              Recur is launching soon. Drop your email and we'll let you know when it's ready.
+            <motion.p
+              variants={fadeUp}
+              className="text-lg text-[hsl(160,8%,55%)] mb-12 max-w-md mx-auto leading-relaxed"
+            >
+              Recur is launching soon. Drop your email and we'll let you know
+              when it's ready.
             </motion.p>
 
             {submitted ? (
@@ -323,9 +389,15 @@ export default function Home() {
               </p>
             )}
 
-            <motion.p variants={fadeUp} className="mt-6 text-xs text-[hsl(160,8%,35%)]">
+            <motion.p
+              variants={fadeUp}
+              className="mt-6 text-xs text-[hsl(160,8%,35%)]"
+            >
               No spam, ever.{" "}
-              <Link href="/privacy" className="underline underline-offset-2 hover:text-[hsl(160,8%,55%)] transition-colors">
+              <Link
+                href="/privacy"
+                className="underline underline-offset-2 hover:text-[hsl(160,8%,55%)] transition-colors"
+              >
                 Privacy Policy
               </Link>
             </motion.p>
@@ -337,15 +409,33 @@ export default function Home() {
       <footer className="py-10 border-t border-border">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
-            <img src={recurIcon} alt="Recur icon" className="w-6 h-6 rounded-lg" />
-            <img src={recurLogoDark} alt="Recur" className="h-4 w-auto dark:invert" />
+            <img
+              src={recurIcon}
+              alt="Recur icon"
+              className="w-6 h-6 rounded-lg"
+            />
+            <img
+              src={recurLogoDark}
+              alt="Recur"
+              className="h-4 w-auto dark:invert"
+            />
           </div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Recur. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+            <Link
+              href="/privacy"
+              className="hover:text-foreground transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="hover:text-foreground transition-colors"
+            >
+              Terms
+            </Link>
           </div>
         </div>
       </footer>
