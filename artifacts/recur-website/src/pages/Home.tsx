@@ -92,15 +92,9 @@ export default function Home() {
               </motion.h1>
               <motion.p
                 variants={fadeUp}
-                className="text-xl md:text-2xl text-muted-foreground max-w-md mb-5 leading-relaxed"
+                className="text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed"
               >
                 Strength training that adapts to your history.
-              </motion.p>
-              <motion.p
-                variants={fadeUp}
-                className="text-base text-muted-foreground/70 max-w-md mb-10 leading-relaxed"
-              >
-                Adapts to breaks. Works around pain. Builds momentum that lasts.
               </motion.p>
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
                 <a
@@ -165,7 +159,7 @@ export default function Home() {
             className="text-lg md:text-xl text-muted-foreground leading-relaxed pt-1 md:pt-10"
           >
             You've trained before. You've stopped before. Maybe you've got an old injury that flares up, or a schedule that makes consistency hard.{" "}
-            Recur is for people who know that <strong className="text-foreground font-semibold">perfect weeks don't exist</strong> and want an app that gets it.
+            <strong className="text-foreground font-semibold">Recur is for people who know that perfect weeks don't exist</strong> and want an app that gets it.
           </motion.p>
         </div>
       </section>
