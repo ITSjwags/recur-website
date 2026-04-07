@@ -129,8 +129,9 @@ export default function Home() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight"
           >
-            Missing a week<br />
-            <span className="text-primary">is not starting over.</span>
+            Adapts to breaks.<br />
+            Works around pain.<br />
+            <span className="text-primary">Builds momentum that lasts.</span>
           </motion.p>
         </div>
       </section>
