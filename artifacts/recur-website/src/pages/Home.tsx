@@ -106,14 +106,14 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero — always dark, immersive */}
-      <section className="relative min-h-[90vh] overflow-hidden bg-[hsl(200,16%,10%)]">
+      {/* Hero — adapts to color mode */}
+      <section className="relative min-h-[90vh] overflow-hidden bg-background">
         <img
           src="/lifestyle-hero.png?v=2"
           alt="Person doing home workout"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-luminosity"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-25 mix-blend-multiply dark:opacity-40 dark:mix-blend-luminosity"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(200,16%,10%)] via-[hsl(200,16%,10%)]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 flex items-center min-h-[90vh]">
           <div className="w-full md:w-1/2">
             <motion.div
@@ -124,19 +124,19 @@ export default function Home() {
             >
               <motion.p
                 variants={fadeUp}
-                className="text-xs font-semibold tracking-[0.15em] uppercase text-[hsl(184,38%,52%)] mb-5"
+                className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-5"
               >
                 Ready when you are.
               </motion.p>
               <motion.h1
                 variants={fadeUp}
-                className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-[hsl(150,16%,96%)] mb-6"
+                className="text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6"
               >
                 Stop starting<br />over.
               </motion.h1>
               <motion.p
                 variants={fadeUp}
-                className="text-xl md:text-2xl text-[hsl(160,8%,62%)] max-w-md mb-10 leading-relaxed"
+                className="text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed"
               >
                 Strength training that adapts to your history.
               </motion.p>
