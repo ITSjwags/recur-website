@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { SiApple, SiGoogleplay } from "react-icons/si";
-import { History, Zap, ShieldCheck, Home } from "lucide-react";
+import { History, Zap, ShieldCheck, Home as HomeIcon } from "lucide-react";
 import recurLogoDark from "@assets/recur_1775218108653.png";
 import recurIcon from "@assets/icon_1775218102896.png";
 
@@ -33,7 +33,7 @@ const features = [
     body: "No planning, no decision fatigue. We generate your workout based on what you need today, so the hardest part is just showing up.",
   },
   {
-    icon: <Home className="w-6 h-6" />,
+    icon: <HomeIcon className="w-6 h-6" />,
     title: "Built for home workouts",
     body: "Dumbbells or bodyweight, that's all you need. No gym, no barbell, no complicated setup. Real strength training built around what you already have at home.",
   },
