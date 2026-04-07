@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { SiApple, SiGoogleplay } from "react-icons/si";
-import { History, Zap, ShieldCheck, TrendingUp } from "lucide-react";
+import { History, Zap, ShieldCheck, Home } from "lucide-react";
 import recurLogoDark from "@assets/recur_1775218108653.png";
 import recurIcon from "@assets/icon_1775218102896.png";
 
@@ -33,7 +33,7 @@ const features = [
     body: "No planning, no decision fatigue. We generate your workout based on what you need today, so the hardest part is just showing up.",
   },
   {
-    icon: <TrendingUp className="w-6 h-6" />,
+    icon: <Home className="w-6 h-6" />,
     title: "Built for home workouts",
     body: "Dumbbells or bodyweight, that's all you need. No gym, no barbell, no complicated setup. Real strength training built around what you already have at home.",
   },
@@ -220,7 +220,7 @@ export default function Home() {
             <div className="absolute inset-0 flex items-end p-10 md:p-16">
               <div className="max-w-lg">
                 <p className="text-3xl md:text-5xl font-semibold text-background leading-tight tracking-tight">
-                  Welcome back is always the answer.
+                  Show up when you can. It's enough.
                 </p>
               </div>
             </div>
