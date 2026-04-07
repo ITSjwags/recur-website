@@ -84,7 +84,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    document.title = "Recur | Back to it. Every time.";
+    document.title = "Recur | Built for bodies with history.";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute(
