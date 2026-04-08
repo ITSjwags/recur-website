@@ -11,8 +11,8 @@ export default function Privacy() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <nav className="border-b border-border px-6">
-        <div className="max-w-6xl mx-auto h-16 flex items-center justify-between">
+      <nav className="border-b border-border">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <img src={recurIcon} alt="Recur icon" className="w-8 h-8 rounded-xl" />
             <img src={recurLogoDark} alt="Recur" className="h-5 w-auto dark:invert" />
