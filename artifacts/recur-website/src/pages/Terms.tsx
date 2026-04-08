@@ -38,9 +38,9 @@ export default function Terms() {
               Recur provides fitness content and workout recommendations. By using Recur, you acknowledge that:
             </p>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>You are at least 18 years old or have parental consent</li>
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>You will use the service responsibly</li>
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>You understand that Recur is not a substitute for professional medical advice</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>You are at least 18 years old or have parental consent</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>You will use the service responsibly</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>You understand that Recur is not a substitute for professional medical advice</li>
             </ul>
           </section>
 
@@ -58,9 +58,9 @@ export default function Terms() {
             <h2 className="text-2xl font-semibold mb-4">Your Account</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">When you create an account with Recur, you are responsible for:</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>Maintaining the security of your account</li>
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>All activities that occur under your account</li>
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>Providing accurate information</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>Maintaining the security of your account</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>All activities that occur under your account</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>Providing accurate information</li>
             </ul>
           </section>
 
@@ -68,10 +68,10 @@ export default function Terms() {
             <h2 className="text-2xl font-semibold mb-4">Acceptable Use</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">You agree not to:</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>Use Recur for any unlawful purpose</li>
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>Share your account with others</li>
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>Attempt to access other users' accounts</li>
-              <li className="flex items-center gap-2"><span className="text-primary"•</span>Interfere with the proper functioning of the service</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>Use Recur for any unlawful purpose</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>Share your account with others</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>Attempt to access other users' accounts</li>
+              <li className="flex items-center gap-2"><span className="text-primary">•</span>Interfere with the proper functioning of the service</li>
             </ul>
           </section>
 
