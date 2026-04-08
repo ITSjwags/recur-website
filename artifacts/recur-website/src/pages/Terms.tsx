@@ -15,7 +15,7 @@ export default function Terms() {
         <div className="max-w-6xl mx-auto h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <img src={recurIcon} alt="Recur icon" className="w-8 h-8 rounded-xl" />
-            <img src={recurLogoDark} alt="Recur" className="h-5 w-auto" />
+            <img src={recurLogoDark} alt="Recur" className="h-5 w-auto dark:invert" />
           </Link>
           <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             ← Back home
@@ -110,7 +110,7 @@ export default function Terms() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <img src={recurIcon} alt="Recur icon" className="w-6 h-6 rounded-lg" />
-            <img src={recurLogoDark} alt="Recur" className="h-4 w-auto" />
+            <img src={recurLogoDark} alt="Recur" className="h-4 w-auto dark:invert" />
           </div>
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Recur. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-muted-foreground">
