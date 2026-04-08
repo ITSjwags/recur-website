@@ -50,10 +50,10 @@ export default function Privacy() {
             <h2 className="text-2xl font-semibold mb-4">Account Information</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">When Recur launches, we may collect:</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Name and email address</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Workout preferences and history</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Information about injuries or pain points you choose to share</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Device information for app functionality</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Name and email address</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Workout preferences and history</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Information about injuries or pain points you choose to share</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Device information for app functionality</li>
             </ul>
           </section>
 
@@ -61,10 +61,10 @@ export default function Privacy() {
             <h2 className="text-2xl font-semibold mb-4">How We Use Your Information</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">We use the information we collect to:</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Provide, maintain, and improve our services</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Personalize your workout experience</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Send you updates about Recur (you can opt out anytime)</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Respond to your comments and questions</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Provide, maintain, and improve our services</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Personalize your workout experience</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Send you updates about Recur (you can opt out anytime)</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Respond to your comments and questions</li>
             </ul>
           </section>
 
@@ -79,10 +79,10 @@ export default function Privacy() {
             <h2 className="text-2xl font-semibold mb-4">Your Rights</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">You have the right to:</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Access the personal information we hold about you</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Request correction of inaccurate information</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Request deletion of your information</li>
-              <li className="flex items-center gap-2"><span className="text-primary">•</span>Opt out of marketing communications</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Access the personal information we hold about you</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Request correction of inaccurate information</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Request deletion of your information</li>
+              <li className="flex items-baseline gap-2"><span className="text-primary">•</span>Opt out of marketing communications</li>
             </ul>
           </section>
 
