@@ -27,7 +27,7 @@ export default function Privacy() {
         <h1 className="text-4xl font-semibold tracking-tight mb-2">Privacy Policy</h1>
         <p className="text-sm text-muted-foreground mb-12">Last updated: January 2026</p>
 
-        <div className="prose prose-neutral max-w-none space-y-10 text-foreground">
+        <div className="prose prose-neutral dark:prose-invert max-w-none space-y-10 text-foreground">
           <p className="text-lg text-muted-foreground leading-relaxed">
             At Recur, we take your privacy seriously. This policy describes what personal information we collect and how we use it.
           </p>

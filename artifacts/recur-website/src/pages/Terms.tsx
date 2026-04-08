@@ -27,7 +27,7 @@ export default function Terms() {
         <h1 className="text-4xl font-semibold tracking-tight mb-2">Terms of Service</h1>
         <p className="text-sm text-muted-foreground mb-12">Last updated: January 2026</p>
 
-        <div className="prose prose-neutral max-w-none space-y-10 text-foreground">
+        <div className="prose prose-neutral dark:prose-invert max-w-none space-y-10 text-foreground">
           <p className="text-lg text-muted-foreground leading-relaxed">
             Welcome to Recur. By using our service, you agree to these terms. Please read them carefully.
           </p>
