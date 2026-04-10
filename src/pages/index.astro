@@ -180,7 +180,8 @@ import Base from '../layouts/Base.astro';
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function() {
+      }).then(function(res) {
+        if (!res.ok) throw new Error(res.status);
         form.classList.add('hidden');
         success.classList.remove('hidden');
       }).catch(function() {
