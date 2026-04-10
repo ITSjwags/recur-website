@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.8",
+    "@tailwindcss/vite": "4.2.2",
     "astro": "6.1.5",
+    "tailwindcss": "4.2.2",
     "typescript": "6.0.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.11",
-    "@tailwindcss/vite": "4.2.2",
-    "tailwindcss": "4.2.2"
+    "@biomejs/biome": "2.4.11"
   }
 }
