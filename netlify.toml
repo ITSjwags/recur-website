@@ -1,6 +1,7 @@
 [build]
-  command = "pnpm install && pnpm --filter @workspace/recur-website run build"
-  publish = "artifacts/recur-website/dist/public"
+  command = "yarn install && yarn build"
+  publish = "dist"
 
 [build.environment]
   NODE_ENV = "production"
+  NODE_VERSION = "22"
