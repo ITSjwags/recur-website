@@ -2,13 +2,18 @@
 interface Props {
   href?: string;
   type?: 'button' | 'submit';
+  size?: 'default' | 'sm';
   class?: string;
 }
 
-const { href, type, class: className = '' } = Astro.props;
+const { href, type, size = 'default', class: className = '' } = Astro.props;
 const base =
-  'inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold whitespace-nowrap transition-all hover:bg-primary/85 active:scale-95 disabled:opacity-60';
-const classes = `${base} ${className}`.trim();
+  'inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground font-semibold whitespace-nowrap transition-all hover:bg-primary/85 active:scale-95 disabled:opacity-60';
+const sizes = {
+  default: 'px-6 py-3.5 text-sm',
+  sm: 'px-5 py-2 text-sm',
+};
+const classes = `${base} ${sizes[size]} ${className}`.trim();
 ---
 
 {href ? (
