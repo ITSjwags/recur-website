@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-surface-dark: hsl(var(--surface-dark));
+  --color-surface-dark-foreground: hsl(var(--surface-dark-foreground));
+  --color-surface-dark-muted: hsl(var(--surface-dark-muted));
+  --color-surface-dark-subtle: hsl(var(--surface-dark-subtle));
+  --color-primary-light: hsl(var(--primary-light));
+
+  --font-sans: var(--app-font-sans);
+}
+
+:root {
+  --background: 150 13% 97%;
+  --foreground: 195 12% 13%;
+  --border: 150 10% 88%;
+  --card: 0 0% 100%;
+  --card-foreground: 195 12% 13%;
+  --primary: 184 33% 34%;
+  --primary-foreground: 150 13% 97%;
+  --muted: 150 10% 92%;
+  --muted-foreground: 195 8% 40%;
+  --input: 150 10% 90%;
+  --ring: 184 33% 34%;
+  --surface-dark: 200 16% 10%;
+  --surface-dark-foreground: 150 16% 96%;
+  --surface-dark-muted: 160 8% 55%;
+  --surface-dark-subtle: 160 8% 35%;
+  --primary-light: 184 38% 58%;
+  --app-font-sans: 'Inter', sans-serif;
+}
+
+.dark {
+  --background: 200 14% 11%;
+  --foreground: 150 16% 96%;
+  --border: 200 10% 22%;
+  --card: 200 14% 14%;
+  --card-foreground: 150 16% 96%;
+  --primary: 184 33% 34%;
+  --primary-foreground: 150 13% 97%;
+  --muted: 200 10% 18%;
+  --muted-foreground: 160 6% 60%;
+  --input: 200 10% 22%;
+  --ring: 184 33% 34%;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  p, li {
+    text-wrap: pretty;
+  }
+}
+
+/* Scroll-triggered fade-up animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.is-visible {
+  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Stagger delays for children */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 240ms; }
+.stagger-4 { animation-delay: 360ms; }
+
+/* Content page bullet lists */
+.content-page ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-muted-foreground);
+}
+.content-page ul li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.content-page ul li::before {
+  content: '\2022';
+  color: var(--color-primary);
+  flex-shrink: 0;
+}

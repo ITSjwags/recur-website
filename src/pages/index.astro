@@ -1,0 +1,193 @@
+---
+import Button from '../components/Button.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Recur | Built for bodies with history." description="Strength training for adults who train at home and want to stay consistent without getting hurt or burned out. Adapts to breaks, works around pain, builds momentum that lasts.">
+  <main class="min-h-[100dvh] bg-background text-foreground overflow-x-hidden">
+    <Nav />
+
+    <!-- Hero -->
+    <section class="relative min-h-[90vh] overflow-hidden bg-background">
+      <img
+        src="/lifestyle-hero.png"
+        alt="Person doing home workout"
+        fetchpriority="high"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-25 mix-blend-multiply dark:opacity-40 dark:mix-blend-luminosity"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-6 flex items-center min-h-[90vh]">
+        <div class="w-full md:w-1/2">
+          <div class="flex flex-col items-start pt-24 pb-20 md:py-0">
+            <h1 class="animate-fade-up stagger-1 text-[clamp(3.2rem,7vw,6.5rem)] font-semibold tracking-tighter leading-[1.0] text-foreground mb-6">
+              Stop starting<br />over.
+            </h1>
+            <p class="animate-fade-up stagger-2 text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed">
+              Strength training that adapts to your history.
+            </p>
+            <div class="animate-fade-up stagger-3">
+              <Button href="#waitlist">
+                Get early access
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value prop band -->
+    <section class="bg-surface-dark py-20 border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-6">
+        <p class="animate-on-scroll text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-surface-dark-foreground">
+          Adapts to breaks.<br />
+          Works around pain.<br />
+          <span class="text-primary-light">Builds momentum that lasts.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Who this is for -->
+    <section class="py-28">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
+        <div class="animate-on-scroll">
+          <SectionLabel class="mb-6">Who it's for</SectionLabel>
+          <h2 class="text-3xl md:text-4xl font-semibold leading-snug tracking-tight">
+            Built for bodies<br />with history.
+          </h2>
+        </div>
+        <p class="animate-on-scroll text-lg md:text-xl text-muted-foreground leading-relaxed pt-1 md:pt-10">
+          You've trained before. You've stopped before. Maybe you've got an
+          old injury that flares up, or a schedule that makes consistency
+          hard. <strong class="text-foreground font-semibold">Recur is for people who know that perfect weeks don't exist</strong> and want an app that gets it.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-24 bg-card border-y border-border/60">
+      <div class="max-w-6xl mx-auto px-6">
+        <SectionLabel class="animate-on-scroll mb-16">A different relationship with training</SectionLabel>
+        <div class="grid md:grid-cols-2 gap-x-20 gap-y-14">
+          <FeatureCard title="Progress you don't have to reset" stagger={1}>
+            <svg slot="icon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            It learns from your actual sessions: how hard you pushed, what you swapped, how your body responded. Then it builds from there. Take a couple weeks off? We automatically ease you back in. No punishment, no starting over.
+          </FeatureCard>
+          <FeatureCard title="Works around pain, not through it" stagger={2}>
+            <svg slot="icon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 12 15 16 10"></polyline></svg>
+            Flag an ache, we route around it. Shoulders, knees, back. The app learns what bothers you and keeps you moving without aggravating it.
+          </FeatureCard>
+          <FeatureCard title="Just tap start" stagger={1}>
+            <svg slot="icon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            No planning, no decision fatigue. We generate your workout based on what you need today, so the hardest part is just showing up.
+          </FeatureCard>
+          <FeatureCard title="Built for home workouts" stagger={2}>
+            <svg slot="icon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            Dumbbells or bodyweight, that's all you need. No gym, no barbell, no complicated setup. Real strength training built around what you already have at home.
+          </FeatureCard>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lifestyle image block -->
+    <section class="py-10 pb-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="animate-on-scroll rounded-3xl overflow-hidden relative bg-foreground dark:bg-card">
+          <img
+            src="/lifestyle.png"
+            alt="Person working out calmly at home with dumbbells"
+            loading="lazy"
+            class="w-full h-[420px] md:h-[560px] object-cover opacity-40 mix-blend-luminosity dark:opacity-40 dark:mix-blend-luminosity"
+          />
+          <div class="absolute inset-0 flex items-end p-10 md:p-16">
+            <div class="max-w-lg">
+              <p class="text-3xl md:text-5xl font-semibold text-surface-dark-foreground leading-tight tracking-tight">
+                Show up when you can. It's enough.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist CTA -->
+    <section
+      id="waitlist"
+      class="py-32 bg-surface-dark relative overflow-hidden border-t border-white/5"
+    >
+      <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-primary/8 blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+        <div class="animate-on-scroll">
+          <SectionLabel class="text-primary mb-5">Ready when you are.</SectionLabel>
+          <h2 class="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-surface-dark-foreground">
+            Back to it.<br />Every time.
+          </h2>
+          <p class="text-lg text-surface-dark-muted mb-12 max-w-md mx-auto leading-relaxed">
+            Recur is launching soon. Drop your email and we'll let you know when it's ready.
+          </p>
+        </div>
+
+        <form
+          id="waitlist-form"
+          name="waitlist"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"
+        >
+          <input type="hidden" name="form-name" value="waitlist" />
+          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            class="flex-1 px-5 py-3.5 rounded-full bg-white/8 border border-white/15 text-surface-dark-foreground placeholder:text-surface-dark-subtle focus:outline-none focus:border-white/35 text-sm"
+          />
+          <Button type="submit">
+            Join waitlist
+          </Button>
+        </form>
+
+        <div id="waitlist-success" class="hidden text-surface-dark-foreground/80 text-lg font-medium">
+          You're on the list. We'll be in touch.
+        </div>
+
+        <p class="mt-6 text-xs text-surface-dark-subtle">
+          No spam, ever.
+          <a href="/privacy" class="underline underline-offset-2 hover:text-surface-dark-muted transition-colors">Privacy Policy</a>
+        </p>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+
+  <script is:inline>
+    var form = document.getElementById('waitlist-form');
+    var success = document.getElementById('waitlist-success');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Joining\u2026';
+      btn.disabled = true;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function() {
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+      }).catch(function() {
+        btn.textContent = 'Join waitlist';
+        btn.disabled = false;
+        alert('Something went wrong. Try again or email us directly.');
+      });
+    });
+  </script>
+</Base>
