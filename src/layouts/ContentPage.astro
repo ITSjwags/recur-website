@@ -1,0 +1,23 @@
+---
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<Base title={title}>
+  <main class="min-h-screen bg-background text-foreground">
+    <Nav showWaitlist={false} />
+
+    <div class="max-w-3xl mx-auto px-6 pt-28 pb-20 content-page">
+      <slot />
+    </div>
+
+    <Footer />
+  </main>
+</Base>
