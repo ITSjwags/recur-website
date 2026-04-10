@@ -14,7 +14,7 @@ import Base from '../layouts/Base.astro';
     <!-- Hero -->
     <section class="relative min-h-[90vh] overflow-hidden bg-background">
       <img
-        src="/lifestyle-hero.png"
+        src="/lifestyle-hero.webp"
         alt="Person doing home workout"
         fetchpriority="high"
         class="absolute inset-0 w-full h-full object-cover object-center opacity-25 mix-blend-multiply dark:opacity-40 dark:mix-blend-luminosity"
@@ -97,7 +97,7 @@ import Base from '../layouts/Base.astro';
       <div class="max-w-6xl mx-auto px-6">
         <div class="animate-on-scroll rounded-3xl overflow-hidden relative bg-foreground dark:bg-card">
           <img
-            src="/lifestyle.png"
+            src="/lifestyle.webp"
             alt="Person working out calmly at home with dumbbells"
             loading="lazy"
             class="w-full h-[420px] md:h-[560px] object-cover opacity-40 mix-blend-luminosity dark:opacity-40 dark:mix-blend-luminosity"
@@ -180,7 +180,8 @@ import Base from '../layouts/Base.astro';
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function() {
+      }).then(function(res) {
+        if (!res.ok) throw new Error(res.status);
         form.classList.add('hidden');
         success.classList.remove('hidden');
       }).catch(function() {
