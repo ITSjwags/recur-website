@@ -7,6 +7,9 @@ node_modules/
 # Astro
 .astro/
 
+# Replit
+.canvas/
+
 # System
 .DS_Store
 Thumbs.db
