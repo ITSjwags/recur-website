@@ -22,3 +22,11 @@ Thumbs.db
 # Debug
 npm-debug.log
 yarn-error.log
+
+# Local Netlify folder
+.netlify
+
+# Environment variables (use .env.example as template)
+.env
+.env.local
+.env.*.local

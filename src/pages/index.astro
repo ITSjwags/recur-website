@@ -1,5 +1,4 @@
 ---
-import Button from '../components/Button.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
@@ -29,10 +28,19 @@ import Base from '../layouts/Base.astro';
             <p class="animate-fade-up stagger-2 text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed">
               Strength training that adapts to yours.
             </p>
-            <div class="animate-fade-up stagger-3">
-              <Button href="#waitlist">
-                Get early access
-              </Button>
+            <div class="animate-fade-up stagger-3 flex flex-col items-start gap-3">
+              <a href="https://apps.apple.com/us/app/recur-fit/id6757411689" class="inline-block" data-track="app_store_clicked" data-track-location="hero">
+                <img
+                  src="/app-store-badge.png"
+                  alt="Download on the App Store"
+                  width="200"
+                  height="67"
+                  class="block h-[60px] w-auto"
+                />
+              </a>
+              <p class="text-sm text-muted-foreground">
+                Coming soon to Android.
+              </p>
             </div>
           </div>
         </div>
@@ -92,6 +100,75 @@ import Base from '../layouts/Base.astro';
       </div>
     </section>
 
+    <!-- Pricing -->
+    <section id="pricing" class="py-28">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="animate-on-scroll mb-16 max-w-3xl">
+          <SectionLabel class="mb-6">Pricing</SectionLabel>
+          <h2 class="text-3xl md:text-5xl font-semibold leading-tight tracking-tight mb-6">
+            Every workout. Free.
+          </h2>
+          <p class="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            Three a week, no card. Pay for unlimited, full history, and progress charts.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Free -->
+          <div class="animate-on-scroll border border-border rounded-3xl p-8 md:p-10 flex flex-col">
+            <h3 class="text-2xl font-semibold tracking-tight mb-2">Free</h3>
+            <p class="text-muted-foreground mb-8">For three workouts a week.</p>
+            <ul class="space-y-3 text-base flex-1">
+              <li class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>3 workouts a week</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Limited workout history</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>No ads, ever</span>
+              </li>
+            </ul>
+            <p class="mt-8 pt-6 border-t border-border text-base font-semibold">Free, forever. No card.</p>
+          </div>
+
+          <!-- Pro -->
+          <div class="animate-on-scroll border-2 border-primary rounded-3xl p-8 md:p-10 bg-primary/5 flex flex-col" style="animation-delay: 0.1s;">
+            <h3 class="text-2xl font-semibold tracking-tight mb-2">Pro</h3>
+            <p class="text-muted-foreground mb-8">Everything in Free, plus the data.</p>
+            <ul class="space-y-3 text-base flex-1">
+              <li class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Unlimited workouts</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Full workout history</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Progress charts for every exercise</span>
+              </li>
+              <li class="flex gap-3 items-start">
+                <svg class="w-5 h-5 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Priority support</span>
+              </li>
+            </ul>
+            <p class="mt-8 pt-6 border-t border-primary/30 text-base font-semibold">
+              <span class="text-foreground">$9.99</span><span class="text-muted-foreground"> / month</span>
+              <span class="text-muted-foreground"> &middot; </span>
+              <span class="text-foreground">$79.99</span><span class="text-muted-foreground"> / year</span>
+              <span class="text-primary"> (best value)</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Lifestyle image block -->
     <section class="py-10 pb-24">
       <div class="max-w-6xl mx-auto px-6">
@@ -113,9 +190,9 @@ import Base from '../layouts/Base.astro';
       </div>
     </section>
 
-    <!-- Waitlist CTA -->
+    <!-- Download CTA -->
     <section
-      id="waitlist"
+      id="download"
       class="py-32 bg-surface-dark relative overflow-hidden border-t border-white/5"
     >
       <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
@@ -124,71 +201,26 @@ import Base from '../layouts/Base.astro';
       <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
         <div class="animate-on-scroll">
           <SectionLabel class="text-primary mb-5">Ready when you are.</SectionLabel>
-          <h2 class="text-5xl md:text-7xl font-semibold tracking-tight mb-6 text-surface-dark-foreground">
+          <h2 class="text-5xl md:text-7xl font-semibold tracking-tight mb-12 text-surface-dark-foreground">
             Stop starting<br />over.
           </h2>
-          <p class="text-lg text-surface-dark-muted mb-12 max-w-md mx-auto leading-relaxed">
-            Recur is launching soon. Drop your email and we'll let you know when it's ready.
-          </p>
         </div>
 
-        <form
-          id="waitlist-form"
-          name="waitlist"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"
-        >
-          <input type="hidden" name="form-name" value="waitlist" />
-          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Enter your email"
-            class="flex-1 px-5 py-3.5 rounded-full bg-white/8 border border-white/15 text-surface-dark-foreground placeholder:text-surface-dark-subtle focus:outline-none focus:border-white/35 text-sm"
-          />
-          <Button type="submit">
-            Join waitlist
-          </Button>
-        </form>
-
-        <div id="waitlist-success" class="hidden text-surface-dark-foreground/80 text-lg font-medium">
-          You're on the list. We'll be in touch.
+        <div class="animate-on-scroll">
+          <a href="https://apps.apple.com/us/app/recur-fit/id6757411689" class="inline-block" data-track="app_store_clicked" data-track-location="footer_cta">
+            <img
+              src="/app-store-badge.png"
+              alt="Download on the App Store"
+              width="200"
+              height="67"
+              class="block h-[60px] w-auto mx-auto"
+            />
+          </a>
+          <p class="mt-4 text-sm text-surface-dark-muted">Coming soon to Android.</p>
         </div>
-
-        <p class="mt-6 text-xs text-surface-dark-subtle">
-          No spam, ever.
-          <a href="/privacy" class="underline underline-offset-2 hover:text-surface-dark-muted transition-colors">Privacy Policy</a>
-        </p>
       </div>
     </section>
 
     <Footer />
   </main>
-
-  <script is:inline>
-    var form = document.getElementById('waitlist-form');
-    var success = document.getElementById('waitlist-success');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Joining\u2026';
-      btn.disabled = true;
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function(res) {
-        if (!res.ok) throw new Error(res.status);
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-      }).catch(function() {
-        btn.textContent = 'Join waitlist';
-        btn.disabled = false;
-        alert('Something went wrong. Try again or email us directly.');
-      });
-    });
-  </script>
 </Base>
