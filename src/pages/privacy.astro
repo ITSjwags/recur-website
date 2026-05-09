@@ -4,7 +4,7 @@ import ContentPage from '../layouts/ContentPage.astro';
 
 <ContentPage title="Privacy Policy | Recur">
   <h1 class="text-4xl font-semibold tracking-tight mb-2">Privacy Policy</h1>
-  <p class="text-sm text-muted-foreground mb-12">Last updated: January 2026</p>
+  <p class="text-sm text-muted-foreground mb-12">Last updated: May 2026</p>
 
   <div class="max-w-none space-y-10 text-foreground">
     <p class="text-lg text-muted-foreground leading-relaxed">
@@ -12,27 +12,32 @@ import ContentPage from '../layouts/ContentPage.astro';
     </p>
 
     <section>
-      <h2 class="text-2xl font-semibold mb-4">Information We Collect</h2>
-      <p class="text-muted-foreground leading-relaxed">
-        We collect information you provide directly to us, such as when you sign up for our waitlist, create an account, or contact us for support.
+      <h2 class="text-2xl font-semibold mb-4">Site Analytics</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        We use <a href="https://posthog.com" class="text-primary hover:underline">PostHog</a> to understand how people use our marketing site (<a href="https://recur.fit" class="text-primary hover:underline">recur.fit</a>). It runs in cookieless mode, which means:
       </p>
-    </section>
-
-    <section>
-      <h2 class="text-2xl font-semibold mb-4">Waitlist Information</h2>
-      <p class="text-muted-foreground leading-relaxed">
-        When you join our waitlist, we collect your email address. We use this solely to notify you about Recur's launch and updates.
+      <ul>
+        <li>No cookies are set on your device</li>
+        <li>No identifiers are stored in your browser</li>
+        <li>You're not tracked across sessions or other sites</li>
+        <li>Your IP address isn't stored</li>
+      </ul>
+      <p class="text-muted-foreground leading-relaxed mt-4">
+        What we measure: page views, button clicks (like the App Store badge), the country you're visiting from, and which sites send us traffic. The data is aggregated and anonymous. We honor browser Do Not Track signals.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mt-4">
+        PostHog's privacy policy: <a href="https://posthog.com/privacy" class="text-primary hover:underline">posthog.com/privacy</a>.
       </p>
     </section>
 
     <section>
       <h2 class="text-2xl font-semibold mb-4">Account Information</h2>
-      <p class="text-muted-foreground leading-relaxed mb-4">When Recur launches, we may collect:</p>
+      <p class="text-muted-foreground leading-relaxed mb-4">When you create a Recur account, we collect:</p>
       <ul>
-        <li>Name and email address</li>
-        <li>Workout preferences and history</li>
+        <li>Email address</li>
+        <li>Workout history and preferences</li>
         <li>Information about injuries or pain points you choose to share</li>
-        <li>Device information for app functionality</li>
+        <li>Device information needed for the app to work</li>
       </ul>
     </section>
 
@@ -40,9 +45,9 @@ import ContentPage from '../layouts/ContentPage.astro';
       <h2 class="text-2xl font-semibold mb-4">How We Use Your Information</h2>
       <p class="text-muted-foreground leading-relaxed mb-4">We use the information we collect to:</p>
       <ul>
-        <li>Provide, maintain, and improve our services</li>
+        <li>Provide, maintain, and improve Recur</li>
         <li>Personalize your workout experience</li>
-        <li>Send you updates about Recur (you can opt out anytime)</li>
+        <li>Send you product updates and announcements (you can opt out anytime via the unsubscribe link in any email)</li>
         <li>Respond to your comments and questions</li>
       </ul>
     </section>
