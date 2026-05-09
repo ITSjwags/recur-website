@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://recur.fit/sitemap-index.xml
