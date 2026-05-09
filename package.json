@@ -18,6 +18,7 @@
     "typescript": "6.0.2"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "3.7.2",
     "@biomejs/biome": "2.4.11"
   }
 }
