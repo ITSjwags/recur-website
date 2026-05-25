@@ -1,0 +1,3 @@
+# Recur has no authorized app ad sellers.
+# This file exists per IAB Tech Lab spec to prevent
+# 404 noise from ad crawlers.

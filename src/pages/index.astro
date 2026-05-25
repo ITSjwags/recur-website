@@ -13,7 +13,7 @@ import Base from '../layouts/Base.astro';
     name: 'Recur',
     description: 'Strength training that adapts to your history. Built for bodies with history.',
     applicationCategory: 'HealthApplication',
-    operatingSystem: 'iOS',
+    operatingSystem: 'iOS, Android',
     url: 'https://recur.fit',
     downloadUrl: 'https://apps.apple.com/us/app/recur-fit/id6757411689',
     offers: [
@@ -58,7 +58,7 @@ import Base from '../layouts/Base.astro';
             <p class="animate-fade-up stagger-2 text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed">
               Strength training that adapts to yours.
             </p>
-            <div class="animate-fade-up stagger-3 flex flex-col items-start gap-3">
+            <div class="animate-fade-up stagger-3 flex flex-col sm:flex-row sm:items-center items-start gap-4">
               <a href="https://apps.apple.com/us/app/recur-fit/id6757411689" class="inline-block" data-track="app_store_clicked" data-track-location="hero">
                 <img
                   src="/app-store-badge.png"
@@ -68,9 +68,15 @@ import Base from '../layouts/Base.astro';
                   class="block h-[60px] w-auto"
                 />
               </a>
-              <p class="text-sm text-muted-foreground">
-                Coming soon to Android.
-              </p>
+              <a href="https://play.google.com/store/apps/details?id=fit.recur.app" class="inline-block" data-track="play_store_clicked" data-track-location="hero">
+                <img
+                  src="/google-play-badge.png"
+                  alt="Get it on Google Play"
+                  width="201"
+                  height="60"
+                  class="block h-[60px] w-auto"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -236,17 +242,25 @@ import Base from '../layouts/Base.astro';
           </h2>
         </div>
 
-        <div class="animate-on-scroll">
+        <div class="animate-on-scroll flex flex-col sm:flex-row sm:items-center justify-center items-center gap-4">
           <a href="https://apps.apple.com/us/app/recur-fit/id6757411689" class="inline-block" data-track="app_store_clicked" data-track-location="footer_cta">
             <img
               src="/app-store-badge.png"
               alt="Download on the App Store"
               width="200"
               height="67"
-              class="block h-[60px] w-auto mx-auto"
+              class="block h-[60px] w-auto"
             />
           </a>
-          <p class="mt-4 text-sm text-surface-dark-muted">Coming soon to Android.</p>
+          <a href="https://play.google.com/store/apps/details?id=fit.recur.app" class="inline-block" data-track="play_store_clicked" data-track-location="footer_cta">
+            <img
+              src="/google-play-badge.png"
+              alt="Get it on Google Play"
+              width="207"
+              height="80"
+              class="block h-[60px] w-auto"
+            />
+          </a>
         </div>
       </div>
     </section>
