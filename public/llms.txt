@@ -1,0 +1,27 @@
+# Recur
+
+> Strength training for adults who train at home and want to stay consistent without getting hurt or burned out.
+
+Recur is a mobile fitness app available on iOS and Android. It generates personalized strength training workouts based on your history, available equipment, and any pain areas you've flagged. It adapts to breaks, routes around pain, and builds momentum that lasts.
+
+## Key features
+
+- Generates workouts automatically — no planning required
+- Detects breaks in training and eases you back in without starting over
+- Routes around pain areas (shoulders, knees, back, etc.)
+- Works with dumbbells, kettlebells, or bodyweight — no gym needed
+- Tracks progress per exercise over time
+
+## Pricing
+
+- Free: 3 workouts per week, no credit card required
+- Pro: $9.99/month or $79.99/year — unlimited workouts, full history, progress charts
+
+## Availability
+
+- iOS: https://apps.apple.com/us/app/recur-fit/id6757411689
+- Android: https://play.google.com/store/apps/details?id=fit.recur.app
+
+## Contact
+
+hello@recur.fit
