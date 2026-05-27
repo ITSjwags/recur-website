@@ -1,4 +1,5 @@
 ---
+import FaqAccordion from '../components/FaqAccordion';
 import FeatureCard from '../components/FeatureCard.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
@@ -7,6 +8,38 @@ import Base from '../layouts/Base.astro';
 
 const APP_STORE_URL = 'https://apps.apple.com/us/app/recur-fit/id6757411689';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=fit.recur.app';
+
+const faqs = [
+  {
+    question: 'Is Recur free?',
+    answer:
+      'Three workouts a week, no card. Want more, or want to track progress over time? Pro is $9.99/month or $79.99/year.',
+  },
+  {
+    question: 'What equipment do I need?',
+    answer:
+      "Whatever you have at home: dumbbells, kettlebells, or bodyweight. Tell Recur what you're working with and it goes from there.",
+  },
+  {
+    question: "What if I haven't trained in a while?",
+    answer:
+      "It notices the gap and backs off. You don't have to explain yourself. Recur sees you've been out and starts somewhere sensible instead of throwing you straight back in.",
+  },
+  {
+    question: "What if something's been bothering me?",
+    answer:
+      "Tell Recur what to skip. If your shoulder's been acting up or your knee's been cranky lately, flag it and that area just gets left alone.",
+  },
+  {
+    question: 'Where is Recur available?',
+    answer: 'Download it on the App Store or Google Play.',
+  },
+  {
+    question: 'Do I need to plan my own workouts?',
+    answer:
+      "No planning needed. Open the app, tap start. Recur checks what you've been doing, what you have, and how hard you've been pushing, then builds from that.",
+  },
+];
 ---
 
 <Base title="Recur | Built for bodies with history." description="Strength training for adults who train at home and want to stay consistent without getting hurt or burned out. Adapts to breaks, works around pain, builds momentum that lasts.">
@@ -234,90 +267,22 @@ const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=fit.recur.
       <script type="application/ld+json" is:inline set:html={JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Is Recur free?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes. The free tier gives you 3 workouts per week with no credit card required. Pro unlocks unlimited workouts, full history, and progress charts for $9.99/month or $79.99/year.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What equipment do I need?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Dumbbells, kettlebells, bodyweight — whatever you already have. Recur adapts to your available equipment. No gym required.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What if I haven\'t trained in a while?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Recur detects breaks in your training history and automatically eases you back in. No punishment, no starting over — it picks up where your body actually is.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What if I have an injury or pain?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Flag the area that bothers you — shoulders, knees, back, or others — and Recur routes around it. It learns what aggravates you and keeps programming movements that don\'t.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Is Recur available on Android?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes. Recur is available on both iOS (App Store) and Android (Google Play).',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Do I need to plan my own workouts?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No. Recur generates your workout based on your history, equipment, and how your body has been responding. Just tap start.',
-            },
-          },
-        ],
+        mainEntity: faqs.map(faq => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
       })} />
       <div class="max-w-6xl mx-auto px-6">
-        <div class="animate-on-scroll mb-16 max-w-3xl">
-          <SectionLabel class="mb-6">FAQ</SectionLabel>
-          <h2 class="text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
-            Common questions.
-          </h2>
+        <div class="max-w-3xl mx-auto">
+          <div class="animate-on-scroll mb-16">
+            <SectionLabel class="mb-6">FAQ</SectionLabel>
+            <h2 class="text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
+              Common questions.
+            </h2>
+          </div>
+          <FaqAccordion faqs={faqs} client:visible />
         </div>
-        <dl class="max-w-3xl space-y-8">
-          <div class="animate-on-scroll">
-            <dt class="text-lg font-semibold mb-2">Is Recur free?</dt>
-            <dd class="text-muted-foreground leading-relaxed">Yes. The free tier gives you 3 workouts per week — no credit card required. Pro unlocks unlimited workouts, full history, and progress charts for $9.99/month or $79.99/year.</dd>
-          </div>
-          <div class="animate-on-scroll">
-            <dt class="text-lg font-semibold mb-2">What equipment do I need?</dt>
-            <dd class="text-muted-foreground leading-relaxed">Dumbbells, kettlebells, bodyweight — whatever you already have. Recur adapts to your available equipment. No gym required.</dd>
-          </div>
-          <div class="animate-on-scroll">
-            <dt class="text-lg font-semibold mb-2">What if I haven't trained in a while?</dt>
-            <dd class="text-muted-foreground leading-relaxed">Recur detects gaps in your training history and automatically eases you back in. No punishment, no starting over — it picks up where your body actually is.</dd>
-          </div>
-          <div class="animate-on-scroll">
-            <dt class="text-lg font-semibold mb-2">What if I have an injury or pain?</dt>
-            <dd class="text-muted-foreground leading-relaxed">Flag the area that bothers you — shoulders, knees, back, or others — and Recur routes around it. It learns what aggravates you and keeps programming movements that don't.</dd>
-          </div>
-          <div class="animate-on-scroll">
-            <dt class="text-lg font-semibold mb-2">Is Recur available on Android?</dt>
-            <dd class="text-muted-foreground leading-relaxed">Yes. Recur is available on both iOS (App Store) and Android (Google Play).</dd>
-          </div>
-          <div class="animate-on-scroll">
-            <dt class="text-lg font-semibold mb-2">Do I need to plan my own workouts?</dt>
-            <dd class="text-muted-foreground leading-relaxed">No. Recur generates your workout based on your history, equipment, and how your body has been responding. Just tap start.</dd>
-          </div>
-        </dl>
       </div>
     </section>
 
