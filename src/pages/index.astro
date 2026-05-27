@@ -1,40 +1,67 @@
 ---
+import FaqAccordion from '../components/FaqAccordion';
 import FeatureCard from '../components/FeatureCard.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 import SectionLabel from '../components/SectionLabel.astro';
 import Base from '../layouts/Base.astro';
+
+const APP_STORE_URL = 'https://apps.apple.com/us/app/recur-fit/id6757411689';
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=fit.recur.app';
+
+const appBase = {
+  '@type': 'SoftwareApplication',
+  name: 'Recur',
+  description:
+    'Strength training that adapts to your history. Built for bodies with history.',
+  applicationCategory: 'HealthApplication',
+  url: 'https://recur.fit',
+  offers: [
+    { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Pro Monthly', price: '9.99', priceCurrency: 'USD' },
+    { '@type': 'Offer', name: 'Pro Yearly', price: '79.99', priceCurrency: 'USD' },
+  ],
+};
+
+const faqs = [
+  {
+    question: 'Is Recur free?',
+    answer:
+      'Three workouts a week, no card. Want more, or want to track progress over time? Pro is $9.99/month or $79.99/year.',
+  },
+  {
+    question: 'What equipment do I need?',
+    answer:
+      "Whatever you have at home: dumbbells, kettlebells, or bodyweight. Tell Recur what you're working with and it goes from there.",
+  },
+  {
+    question: "What if I haven't trained in a while?",
+    answer:
+      "It notices the gap and backs off. You don't have to explain yourself. Recur sees you've been out and starts somewhere sensible instead of throwing you straight back in.",
+  },
+  {
+    question: "What if something's been bothering me?",
+    answer:
+      "Tell Recur what to skip. If your shoulder's been acting up or your knee's been cranky lately, flag it and that area just gets left alone.",
+  },
+  {
+    question: 'Where is Recur available?',
+    answer: 'Download it on the App Store or Google Play.',
+  },
+  {
+    question: 'Do I need to plan my own workouts?',
+    answer:
+      "No planning needed. Open the app, tap start. Recur checks what you've been doing, what you have, and how hard you've been pushing, then builds from that.",
+  },
+];
 ---
 
 <Base title="Recur | Built for bodies with history." description="Strength training for adults who train at home and want to stay consistent without getting hurt or burned out. Adapts to breaks, works around pain, builds momentum that lasts.">
   <script type="application/ld+json" is:inline set:html={JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'MobileApplication',
-    name: 'Recur',
-    description: 'Strength training that adapts to your history. Built for bodies with history.',
-    applicationCategory: 'HealthApplication',
-    operatingSystem: 'iOS',
-    url: 'https://recur.fit',
-    downloadUrl: 'https://apps.apple.com/us/app/recur-fit/id6757411689',
-    offers: [
-      {
-        '@type': 'Offer',
-        name: 'Free',
-        price: '0',
-        priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Pro Monthly',
-        price: '9.99',
-        priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Pro Yearly',
-        price: '79.99',
-        priceCurrency: 'USD',
-      },
+    '@graph': [
+      { ...appBase, operatingSystem: 'iOS', downloadUrl: APP_STORE_URL },
+      { ...appBase, operatingSystem: 'ANDROID', downloadUrl: PLAY_STORE_URL },
     ],
   })} />
   <main class="min-h-[100dvh] bg-background text-foreground overflow-x-hidden">
@@ -58,8 +85,8 @@ import Base from '../layouts/Base.astro';
             <p class="animate-fade-up stagger-2 text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed">
               Strength training that adapts to yours.
             </p>
-            <div class="animate-fade-up stagger-3 flex flex-col items-start gap-3">
-              <a href="https://apps.apple.com/us/app/recur-fit/id6757411689" class="inline-block" data-track="app_store_clicked" data-track-location="hero">
+            <div class="animate-fade-up stagger-3 flex flex-col sm:flex-row sm:items-center items-start gap-4">
+              <a href={APP_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="app_store_clicked" data-track-location="hero">
                 <img
                   src="/app-store-badge.png"
                   alt="Download on the App Store"
@@ -68,9 +95,15 @@ import Base from '../layouts/Base.astro';
                   class="block h-[60px] w-auto"
                 />
               </a>
-              <p class="text-sm text-muted-foreground">
-                Coming soon to Android.
-              </p>
+              <a href={PLAY_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="play_store_clicked" data-track-location="hero">
+                <img
+                  src="/google-play-badge.png"
+                  alt="Get it on Google Play"
+                  width="201"
+                  height="60"
+                  class="block h-[60px] w-auto"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -220,6 +253,30 @@ import Base from '../layouts/Base.astro';
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="py-28">
+      <script type="application/ld+json" is:inline set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(faq => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
+      })} />
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto">
+          <div class="animate-on-scroll mb-16">
+            <SectionLabel class="mb-6">FAQ</SectionLabel>
+            <h2 class="text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
+              Common questions.
+            </h2>
+          </div>
+          <FaqAccordion faqs={faqs} client:visible />
+        </div>
+      </div>
+    </section>
+
     <!-- Download CTA -->
     <section
       id="download"
@@ -236,17 +293,25 @@ import Base from '../layouts/Base.astro';
           </h2>
         </div>
 
-        <div class="animate-on-scroll">
-          <a href="https://apps.apple.com/us/app/recur-fit/id6757411689" class="inline-block" data-track="app_store_clicked" data-track-location="footer_cta">
+        <div class="animate-on-scroll flex flex-col sm:flex-row sm:items-center justify-center items-center gap-4">
+          <a href={APP_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="app_store_clicked" data-track-location="footer_cta">
             <img
               src="/app-store-badge.png"
               alt="Download on the App Store"
               width="200"
               height="67"
-              class="block h-[60px] w-auto mx-auto"
+              class="block h-[60px] w-auto"
             />
           </a>
-          <p class="mt-4 text-sm text-surface-dark-muted">Coming soon to Android.</p>
+          <a href={PLAY_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="play_store_clicked" data-track-location="footer_cta">
+            <img
+              src="/google-play-badge.png"
+              alt="Get it on Google Play"
+              width="207"
+              height="80"
+              class="block h-[60px] w-auto"
+            />
+          </a>
         </div>
       </div>
     </section>
