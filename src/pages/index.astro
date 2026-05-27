@@ -4,6 +4,9 @@ import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 import SectionLabel from '../components/SectionLabel.astro';
 import Base from '../layouts/Base.astro';
+
+const APP_STORE_URL = 'https://apps.apple.com/us/app/recur-fit/id6757411689';
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=fit.recur.app';
 ---
 
 <Base title="Recur | Built for bodies with history." description="Strength training for adults who train at home and want to stay consistent without getting hurt or burned out. Adapts to breaks, works around pain, builds momentum that lasts.">
@@ -59,7 +62,7 @@ import Base from '../layouts/Base.astro';
               Strength training that adapts to yours.
             </p>
             <div class="animate-fade-up stagger-3 flex flex-col sm:flex-row sm:items-center items-start gap-4">
-              <a href="https://apps.apple.com/us/app/recur-fit/id6757411689" class="inline-block" data-track="app_store_clicked" data-track-location="hero">
+              <a href={APP_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="app_store_clicked" data-track-location="hero">
                 <img
                   src="/app-store-badge.png"
                   alt="Download on the App Store"
@@ -68,7 +71,7 @@ import Base from '../layouts/Base.astro';
                   class="block h-[60px] w-auto"
                 />
               </a>
-              <a href="https://play.google.com/store/apps/details?id=fit.recur.app" class="inline-block" data-track="play_store_clicked" data-track-location="hero">
+              <a href={PLAY_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="play_store_clicked" data-track-location="hero">
                 <img
                   src="/google-play-badge.png"
                   alt="Get it on Google Play"
@@ -243,7 +246,7 @@ import Base from '../layouts/Base.astro';
         </div>
 
         <div class="animate-on-scroll flex flex-col sm:flex-row sm:items-center justify-center items-center gap-4">
-          <a href="https://apps.apple.com/us/app/recur-fit/id6757411689" class="inline-block" data-track="app_store_clicked" data-track-location="footer_cta">
+          <a href={APP_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="app_store_clicked" data-track-location="footer_cta">
             <img
               src="/app-store-badge.png"
               alt="Download on the App Store"
@@ -252,7 +255,7 @@ import Base from '../layouts/Base.astro';
               class="block h-[60px] w-auto"
             />
           </a>
-          <a href="https://play.google.com/store/apps/details?id=fit.recur.app" class="inline-block" data-track="play_store_clicked" data-track-location="footer_cta">
+          <a href={PLAY_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="play_store_clicked" data-track-location="footer_cta">
             <img
               src="/google-play-badge.png"
               alt="Get it on Google Play"
