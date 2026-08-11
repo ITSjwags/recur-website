@@ -1,5 +1,5 @@
 [build]
-  command = "yarn install && echo '--- sharp debug ---' && node --input-type=module -e \"import('sharp').then(s => console.log('IMPORT OK', typeof s.default)).catch(e => { console.error('IMPORT FAILED:', e.message); console.error(e.stack); })\" && echo '--- end debug ---' && yarn build"
+  command = "yarn install && yarn build"
   publish = "dist"
 
 [build.environment]

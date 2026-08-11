@@ -3,6 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "resolutions": {
+    "sharp": "0.35.3"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -14,7 +17,6 @@
     "@astrojs/check": "0.9.8",
     "@astrojs/react": "5.0.5",
     "@astrojs/sitemap": "3.7.2",
-    "@img/sharp-linux-x64": "0.35.3",
     "@radix-ui/react-accordion": "1.2.12",
     "@tailwindcss/vite": "4.2.2",
     "@types/react": "19.2.15",
