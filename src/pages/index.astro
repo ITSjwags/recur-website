@@ -1,13 +1,15 @@
 ---
+import { Image } from 'astro:assets';
+import lifestyleImg from '../assets/lifestyle.webp';
+import lifestyleHeroImg from '../assets/lifestyle-hero.webp';
 import FaqAccordion from '../components/FaqAccordion';
 import FeatureCard from '../components/FeatureCard.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 import SectionLabel from '../components/SectionLabel.astro';
+import StoreBadges from '../components/StoreBadges.astro';
 import Base from '../layouts/Base.astro';
-
-const APP_STORE_URL = 'https://apps.apple.com/us/app/recur-fit/id6757411689';
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=fit.recur.app';
+import { APP_STORE_URL, PLAY_STORE_URL } from '../lib/constants';
 
 const appBase = {
   '@type': 'SoftwareApplication',
@@ -49,6 +51,11 @@ const faqs = [
     answer: 'Download it on the App Store or Google Play.',
   },
   {
+    question: 'Is this a fixed program or does it actually change?',
+    answer:
+      "It changes. Recur builds each workout from your logged sets, effort, swaps, breaks, and any pain you've flagged. There's no template repeating on a schedule. If your last three weeks looked different, your next workout will too.",
+  },
+  {
     question: 'Do I need to plan my own workouts?',
     answer:
       "No planning needed. Open the app, tap start. Recur checks what you've been doing, what you have, and how hard you've been pushing, then builds from that.",
@@ -62,6 +69,12 @@ const faqs = [
     '@graph': [
       { ...appBase, operatingSystem: 'iOS', downloadUrl: APP_STORE_URL },
       { ...appBase, operatingSystem: 'ANDROID', downloadUrl: PLAY_STORE_URL },
+      {
+        '@type': 'Organization',
+        name: 'Recur',
+        url: 'https://recur.fit',
+        logo: 'https://recur.fit/icon.png',
+      },
     ],
   })} />
   <main class="min-h-[100dvh] bg-background text-foreground overflow-x-hidden">
@@ -69,10 +82,12 @@ const faqs = [
 
     <!-- Hero -->
     <section class="relative min-h-[90vh] overflow-hidden bg-background">
-      <img
-        src="/lifestyle-hero.webp"
-        alt="Person doing home workout"
+      <Image
+        src={lifestyleHeroImg}
+        alt="Person doing a strength training workout with dumbbells at home"
         fetchpriority="high"
+        widths={[640, 828, 1200, 1920]}
+        sizes="100vw"
         class="absolute inset-0 w-full h-full object-cover object-center opacity-25 mix-blend-multiply dark:opacity-40 dark:mix-blend-luminosity"
       />
       <div class="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent"></div>
@@ -83,28 +98,12 @@ const faqs = [
               Built for bodies<br />with history.
             </h1>
             <p class="animate-fade-up stagger-2 text-xl md:text-2xl text-muted-foreground max-w-md mb-10 leading-relaxed">
-              Strength training that adapts to yours.
+              The home strength-training app that adapts to yours. No gym, no starting over.
             </p>
-            <div class="animate-fade-up stagger-3 flex flex-col sm:flex-row sm:items-center items-start gap-4">
-              <a href={APP_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="app_store_clicked" data-track-location="hero">
-                <img
-                  src="/app-store-badge.png"
-                  alt="Download on the App Store"
-                  width="200"
-                  height="67"
-                  class="block h-[60px] w-auto"
-                />
-              </a>
-              <a href={PLAY_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="play_store_clicked" data-track-location="hero">
-                <img
-                  src="/google-play-badge.png"
-                  alt="Get it on Google Play"
-                  width="201"
-                  height="60"
-                  class="block h-[60px] w-auto"
-                />
-              </a>
-            </div>
+            <StoreBadges location="hero" class="animate-fade-up stagger-3" />
+            <p class="animate-fade-up stagger-3 text-sm text-muted-foreground mt-4">
+              Your training and injury data stays yours. We don't sell it. See our <a href="/privacy" class="underline hover:text-foreground transition-colors">privacy policy</a>.
+            </p>
           </div>
         </div>
       </div>
@@ -134,12 +133,14 @@ const faqs = [
           You've trained before. You've stopped before. Maybe you've got an
           old injury that flares up, or a schedule that makes consistency
           hard. <strong class="text-foreground font-semibold">Recur is for people who know that perfect weeks don't exist</strong> and want an app that gets it.
+          Not for absolute beginners or competitive lifters chasing PRs.
+          Recur is for people rebuilding a habit that keeps slipping.
         </p>
       </div>
     </section>
 
     <!-- Features -->
-    <section class="py-24 bg-card border-y border-border/60">
+    <section id="how-it-works" class="py-24 bg-card border-y border-border/60">
       <div class="max-w-6xl mx-auto px-6">
         <SectionLabel class="animate-on-scroll mb-16">A different relationship with training</SectionLabel>
         <div class="grid md:grid-cols-2 gap-x-20 gap-y-14">
@@ -160,6 +161,25 @@ const faqs = [
             Dumbbells. Kettlebells. Bodyweight. Whatever you've got works. No gym, no complicated setup. Just strength training that adapts to what you already have.
           </FeatureCard>
         </div>
+      </div>
+    </section>
+
+    <!-- How Recur adapts -->
+    <section class="py-24 bg-card border-b border-border/60">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
+        <div class="animate-on-scroll">
+          <SectionLabel class="mb-6">How it works</SectionLabel>
+          <h2 class="text-3xl md:text-4xl font-semibold leading-snug tracking-tight">
+            Not a template.<br />It actually changes.
+          </h2>
+        </div>
+        <p class="animate-on-scroll text-lg md:text-xl text-muted-foreground leading-relaxed">
+          Recur builds each workout from your logged sets: what you lifted, how hard it felt,
+          what you swapped out, and how long it's been since your last session. Flag a knee or
+          a shoulder and it routes around that area instead of pushing through it. Take three
+          weeks off and it starts you back at a sensible volume instead of where you left off.
+          It's not a fixed program repeating on a schedule. It's built from what you actually did.
+        </p>
       </div>
     </section>
 
@@ -224,7 +244,7 @@ const faqs = [
               <span class="text-foreground">$9.99</span><span class="text-muted-foreground"> / month</span>
               <span class="text-muted-foreground"> &middot; </span>
               <span class="text-foreground">$79.99</span><span class="text-muted-foreground"> / year</span>
-              <span class="text-primary"> (best value)</span>
+              <span class="text-primary"> (save 33%, 2 months free)</span>
             </p>
           </div>
         </div>
@@ -236,10 +256,12 @@ const faqs = [
     <section class="py-10 pb-24">
       <div class="max-w-6xl mx-auto px-6">
         <div class="animate-on-scroll rounded-3xl overflow-hidden relative bg-foreground dark:bg-card">
-          <img
-            src="/lifestyle.webp"
+          <Image
+            src={lifestyleImg}
             alt="Person working out calmly at home with dumbbells"
             loading="lazy"
+            widths={[640, 828, 1200, 1600]}
+            sizes="100vw"
             class="w-full h-[420px] md:h-[560px] object-cover opacity-40 mix-blend-luminosity dark:opacity-40 dark:mix-blend-luminosity"
           />
           <div class="absolute inset-0 flex items-end p-10 md:p-16">
@@ -293,26 +315,10 @@ const faqs = [
           </h2>
         </div>
 
-        <div class="animate-on-scroll flex flex-col sm:flex-row sm:items-center justify-center items-center gap-4">
-          <a href={APP_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="app_store_clicked" data-track-location="footer_cta">
-            <img
-              src="/app-store-badge.png"
-              alt="Download on the App Store"
-              width="200"
-              height="67"
-              class="block h-[60px] w-auto"
-            />
-          </a>
-          <a href={PLAY_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="play_store_clicked" data-track-location="footer_cta">
-            <img
-              src="/google-play-badge.png"
-              alt="Get it on Google Play"
-              width="207"
-              height="80"
-              class="block h-[60px] w-auto"
-            />
-          </a>
-        </div>
+        <StoreBadges location="footer_cta" class="animate-on-scroll justify-center" />
+        <p class="animate-on-scroll text-sm text-muted-foreground/80 mt-6">
+          Your training and injury data stays yours. We don't sell it. See our <a href="/privacy" class="underline hover:text-surface-dark-foreground transition-colors">privacy policy</a>.
+        </p>
       </div>
     </section>
 

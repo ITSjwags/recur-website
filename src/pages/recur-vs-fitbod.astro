@@ -1,0 +1,75 @@
+---
+import StoreBadges from '../components/StoreBadges.astro';
+import ContentPage from '../layouts/ContentPage.astro';
+
+const faqs = [
+  {
+    question: 'Is Recur a Fitbod alternative?',
+    answer:
+      'If you want a free tier that never expires and an app that eases you back in after a break instead of picking up where you left off, yes. If you want the broadest possible exercise library for six-day-a-week gym training, Fitbod may fit you better.',
+  },
+];
+---
+
+<ContentPage
+  title="Recur vs Fitbod | Recur"
+  description="How Recur compares to Fitbod: free tier, break re-entry, and pain routing."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  })} />
+
+  <h1 class="text-4xl font-semibold tracking-tight mb-2">Recur vs Fitbod</h1>
+  <p class="text-sm text-muted-foreground mb-12">A straight comparison, not a sales pitch.</p>
+
+  <div class="max-w-none space-y-10 text-foreground">
+    <p class="text-lg text-muted-foreground leading-relaxed">
+      Fitbod is a well-known name in adaptive workout apps, with a large exercise library and
+      gym-equipment support. If you're comparing it to Recur, here's where we're actually different,
+      not a list of reasons to avoid them.
+    </p>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Where Recur is different</h2>
+      <ul>
+        <li>Three workouts a week are free, forever. Not a trial.</li>
+        <li>Flag a knee or shoulder and Recur routes around it automatically, no separate injury mode to configure.</li>
+        <li>Take a few weeks off and Recur eases you back in instead of resuming at your old volume.</li>
+        <li>Built for home equipment: dumbbells, kettlebells, bodyweight. No gym required.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Who Recur isn't for</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        If you train six days a week across a full gym and want the widest possible exercise
+        library and machine variety, Fitbod's broader catalog may suit you better. Recur is built
+        for people rebuilding a habit that keeps slipping, not for chasing PRs across every machine
+        in the building.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
+      {faqs.map(faq => (
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+          <p class="text-muted-foreground leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="pt-6">
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Three workouts a week, free, forever. See for yourself.
+      </p>
+      <StoreBadges location="vs_fitbod_page" />
+    </section>
+  </div>
+</ContentPage>

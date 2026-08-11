@@ -1,0 +1,101 @@
+---
+import StoreBadges from '../components/StoreBadges.astro';
+import ContentPage from '../layouts/ContentPage.astro';
+
+const faqs = [
+  {
+    question: 'What is the best home workout app after a break from training?',
+    answer:
+      "Look for one that adjusts your starting volume based on how long you've been off, not one that resumes at your old numbers or wipes your history and starts you over. Recur eases you back in automatically after any gap, using dumbbells, kettlebells, or bodyweight at home.",
+  },
+  {
+    question: 'Will I lose my progress if I take time off?',
+    answer:
+      'Not with Recur. Your history stays. When you come back, it starts you at a sensible volume for the gap you took instead of picking up exactly where you left off.',
+  },
+];
+---
+
+<ContentPage
+  title="Best home workout app after a break | Recur"
+  description="How to get back into strength training after time off, and what to look for in an app that handles breaks well."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  })} />
+
+  <h1 class="text-4xl font-semibold tracking-tight mb-2">
+    Getting back into training after a break
+  </h1>
+  <p class="text-sm text-muted-foreground mb-12">
+    For anyone whose training has stop-start stretches, not a straight line.
+  </p>
+
+  <div class="max-w-none space-y-10 text-foreground">
+    <p class="text-lg text-muted-foreground leading-relaxed">
+      Life gets in the way of training. A busy stretch at work, an injury, a new kid, a trip. Most
+      workout apps handle the return the same two ways, and both are wrong for most people.
+    </p>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Why most apps get this wrong</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        Some apps wipe your history and start you over from scratch, as if the months or years
+        you put in never happened. Others do the opposite: they pick up exactly where you left
+        off, at the same weight and volume, like no time passed at all. That second one sounds
+        better until you're sore for a week because you jumped back in at the numbers you had
+        before the break.
+      </p>
+      <p class="text-muted-foreground leading-relaxed">
+        Neither approach accounts for the gap itself. Your body needs a few sessions to
+        readjust, and a good app should build that back-in period for you instead of leaving
+        you to guess.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">What to look for in a comeback-friendly app</h2>
+      <ul>
+        <li>It notices how long you've been away, not just that you're back.</li>
+        <li>It reduces starting volume automatically instead of asking you to self-regulate.</li>
+        <li>It keeps your workout history instead of resetting your account.</li>
+        <li>It lets you flag anything that's been bothering you before you restart.</li>
+        <li>It doesn't guilt you about the gap. Life happens.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">How Recur handles it</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        Recur tracks how long it's been since your last session and adjusts your next workout's
+        volume accordingly. Your history isn't wiped, and you're not thrown back into your old
+        numbers on day one. Flag anything that's been bothering you, and it works around that
+        too. Three workouts a week are free, forever, so you can try the return-from-a-break
+        experience without committing to anything.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
+      {faqs.map(faq => (
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+          <p class="text-muted-foreground leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="pt-6">
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Three workouts a week, free, forever. Come back whenever you're ready.
+      </p>
+      <StoreBadges location="after_a_break_page" />
+    </section>
+  </div>
+</ContentPage>

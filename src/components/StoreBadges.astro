@@ -1,0 +1,32 @@
+---
+import { APP_STORE_URL, PLAY_STORE_URL } from '../lib/constants';
+import { cn } from '../lib/utils';
+
+interface Props {
+  location: string;
+  class?: string;
+}
+
+const { location, class: className = '' } = Astro.props;
+---
+
+<div class={cn('flex flex-col sm:flex-row sm:items-center items-start gap-4', className)}>
+  <a href={APP_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="app_store_clicked" data-track-location={location}>
+    <img
+      src="/app-store-badge.png"
+      alt="Download on the App Store"
+      width="200"
+      height="67"
+      class="block h-[60px] w-auto"
+    />
+  </a>
+  <a href={PLAY_STORE_URL} class="inline-block" target="_blank" rel="noopener noreferrer" data-track="play_store_clicked" data-track-location={location}>
+    <img
+      src="/google-play-badge.png"
+      alt="Get it on Google Play"
+      width="201"
+      height="60"
+      class="block h-[60px] w-auto"
+    />
+  </a>
+</div>
