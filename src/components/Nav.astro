@@ -2,10 +2,10 @@
 import Button from './Button.astro';
 
 interface Props {
-  showWaitlist?: boolean;
+  isHomepage?: boolean;
 }
 
-const { showWaitlist = true } = Astro.props;
+const { isHomepage = true } = Astro.props;
 ---
 
 <nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border/40">
@@ -15,6 +15,12 @@ const { showWaitlist = true } = Astro.props;
       <img src="/recur-wordmark.png" alt="Recur" width="80" height="20" class="h-5 w-auto dark:invert" />
     </a>
     <div class="flex items-center gap-3">
+      {isHomepage && (
+        <div class="hidden sm:flex items-center gap-6 mr-2 text-sm font-medium text-muted-foreground">
+          <a href="/#how-it-works" class="hover:text-foreground transition-colors">How it works</a>
+          <a href="/#pricing" class="hover:text-foreground transition-colors">Pricing</a>
+        </div>
+      )}
       <button
         id="theme-toggle"
         aria-label="Toggle dark mode"
@@ -37,7 +43,7 @@ const { showWaitlist = true } = Astro.props;
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
-      {showWaitlist && (
+      {isHomepage && (
         <Button href="#download" size="sm">
           Download
         </Button>

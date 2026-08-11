@@ -13,7 +13,7 @@ const { title, description } = Astro.props;
 
 <Base title={title} description={description}>
   <main class="min-h-screen bg-background text-foreground">
-    <Nav showWaitlist={false} />
+    <Nav isHomepage={false} />
 
     <div class="max-w-3xl mx-auto px-6 pt-28 pb-20 content-page">
       <slot />

@@ -1,0 +1,74 @@
+---
+import StoreBadges from '../components/StoreBadges.astro';
+import ContentPage from '../layouts/ContentPage.astro';
+
+const faqs = [
+  {
+    question: 'Is Recur similar to BodBot?',
+    answer:
+      "Both take joint and injury issues seriously. BodBot markets itself around 'taking control of your joints.' Recur doesn't ask you to set up a separate injury profile. You flag what's bothering you as you go, and it adjusts from there.",
+  },
+];
+---
+
+<ContentPage
+  title="Recur vs BodBot | Recur"
+  description="How Recur compares to BodBot: pain routing, free tier, and everyday simplicity."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  })} />
+
+  <h1 class="text-4xl font-semibold tracking-tight mb-2">Recur vs BodBot</h1>
+  <p class="text-sm text-muted-foreground mb-12">A straight comparison, not a sales pitch.</p>
+
+  <div class="max-w-none space-y-10 text-foreground">
+    <p class="text-lg text-muted-foreground leading-relaxed">
+      BodBot markets itself as a digital personal trainer built around "taking control of your
+      joints," which puts it closest to Recur's own focus on training around pain. Here's where
+      the two actually differ.
+    </p>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Where Recur is different</h2>
+      <ul>
+        <li>Three workouts a week are free, forever. Not a trial.</li>
+        <li>No separate injury setup. Flag a knee or shoulder mid-flow and Recur routes around it from your next session on.</li>
+        <li>Take a few weeks off and Recur eases you back in instead of resuming at your old volume.</li>
+        <li>Built specifically for home equipment: dumbbells, kettlebells, bodyweight.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">What's similar</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        Both apps treat training around pain as a first-class feature instead of an afterthought.
+        If that's the reason you're looking at BodBot, it's worth trying Recur's free tier before
+        you decide.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
+      {faqs.map(faq => (
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+          <p class="text-muted-foreground leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="pt-6">
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Three workouts a week, free, forever. See for yourself.
+      </p>
+      <StoreBadges location="vs_bodbot_page" />
+    </section>
+  </div>
+</ContentPage>

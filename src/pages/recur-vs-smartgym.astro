@@ -1,0 +1,73 @@
+---
+import StoreBadges from '../components/StoreBadges.astro';
+import ContentPage from '../layouts/ContentPage.astro';
+
+const faqs = [
+  {
+    question: 'Is Recur similar to SmartGym?',
+    answer:
+      "SmartGym has built a large following and an Apple Watch integration Recur doesn't have. If you're deep in the Apple Watch ecosystem, that may matter to you. Recur's focus is different: a free tier that never expires and a break re-entry that eases you back in instead of resuming where you left off.",
+  },
+];
+---
+
+<ContentPage
+  title="Recur vs SmartGym | Recur"
+  description="How Recur compares to SmartGym: free tier, break re-entry, and home-only simplicity."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  })} />
+
+  <h1 class="text-4xl font-semibold tracking-tight mb-2">Recur vs SmartGym</h1>
+  <p class="text-sm text-muted-foreground mb-12">A straight comparison, not a sales pitch.</p>
+
+  <div class="max-w-none space-y-10 text-foreground">
+    <p class="text-lg text-muted-foreground leading-relaxed">
+      SmartGym has a big following. Apple named it App of the Year in 2023, and it carries over
+      65,000 five-star reviews. If you're comparing it to Recur, here's where the two apps take
+      different paths.
+    </p>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Where Recur is different</h2>
+      <ul>
+        <li>Three workouts a week are free, forever. Not a trial.</li>
+        <li>Flag a knee or shoulder and Recur routes around it automatically.</li>
+        <li>Take a few weeks off and Recur eases you back in instead of resuming at your old volume.</li>
+        <li>Built specifically for home equipment: dumbbells, kettlebells, bodyweight.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Where SmartGym has the edge</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        SmartGym has a larger, longer-established community and deeper Apple Watch integration
+        than Recur does today. If that ecosystem matters to your workflow, it's worth a look.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
+      {faqs.map(faq => (
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+          <p class="text-muted-foreground leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="pt-6">
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Three workouts a week, free, forever. See for yourself.
+      </p>
+      <StoreBadges location="vs_smartgym_page" />
+    </section>
+  </div>
+</ContentPage>
