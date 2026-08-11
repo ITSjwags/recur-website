@@ -1,5 +1,5 @@
 [build]
-  command = "yarn install && yarn build"
+  command = "yarn install && echo '--- sharp debug ---' && ls -la node_modules/sharp 2>&1 && ls -la node_modules/@img/ 2>&1 && node -e \"console.log(require.resolve('sharp'))\" 2>&1 && echo '--- end debug ---' && yarn build"
   publish = "dist"
 
 [build.environment]
