@@ -1,0 +1,71 @@
+---
+import StoreBadges from '../components/StoreBadges.astro';
+import ContentPage from '../layouts/ContentPage.astro';
+
+const faqs = [
+  {
+    question: 'Is Recur similar to Boostcamp?',
+    answer:
+      "Both offer a genuine free tier instead of a trial, and Boostcamp's free days map closely to Recur's three free workouts a week. Where Recur differs: it eases you back in automatically after a break, and it routes around pain you flag instead of leaving you to adjust the plan yourself.",
+  },
+];
+---
+
+<ContentPage
+  title="Recur vs Boostcamp | Recur"
+  description="How Recur compares to Boostcamp: break re-entry, pain routing, and a free tier that never expires."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  })} />
+
+  <h1 class="text-4xl font-semibold tracking-tight mb-2">Recur vs Boostcamp</h1>
+  <p class="text-sm text-muted-foreground mb-12">A straight comparison, not a sales pitch.</p>
+
+  <div class="max-w-none space-y-10 text-foreground">
+    <p class="text-lg text-muted-foreground leading-relaxed">
+      Boostcamp is one of the few apps in this category with a real free tier instead of a trial,
+      which puts it closer to Recur than most. Here's where the two actually differ.
+    </p>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Where Recur is different</h2>
+      <ul>
+        <li>Take a few weeks off and Recur eases you back in instead of resuming at your old volume.</li>
+        <li>Flag a knee or shoulder and Recur routes around it automatically, no manual adjustment needed.</li>
+        <li>Three workouts a week are free, forever. Not a trial.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">What's similar</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        Both apps treat a genuine free tier as a real product decision, not a funnel into a trial.
+        If that's what drew you to Boostcamp, the free-tier structure will feel familiar here.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
+      {faqs.map(faq => (
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+          <p class="text-muted-foreground leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </section>
+
+    <section class="pt-6">
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Three workouts a week, free, forever. See for yourself.
+      </p>
+      <StoreBadges location="vs_boostcamp_page" />
+    </section>
+  </div>
+</ContentPage>
