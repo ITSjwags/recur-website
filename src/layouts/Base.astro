@@ -15,10 +15,17 @@ const {
 // local dev pulls from .env. See .env.example for the template.
 const POSTHOG_KEY = import.meta.env.PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com';
+const HEYCATCH_KEY = import.meta.env.PUBLIC_HEYCATCH_KEY;
 
 if (!POSTHOG_KEY) {
   throw new Error(
     'Missing PUBLIC_POSTHOG_KEY. Copy .env.example to .env (local) or set it in Netlify (production).'
+  );
+}
+
+if (!HEYCATCH_KEY) {
+  throw new Error(
+    'Missing PUBLIC_HEYCATCH_KEY. Copy .env.example to .env (local) or set it in Netlify (production).'
   );
 }
 
@@ -72,6 +79,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         respect_dnt: true,
         ip: false,
         property_blacklist: ['$ip'],
+      });
+    </script>
+    <!-- HeyCatch analytics -->
+    <script>
+      import { analytics } from '@heycatch/sdk';
+
+      analytics.init({
+        projectKey: import.meta.env.PUBLIC_HEYCATCH_KEY,
+        install: {
+          framework: 'astro',
+          frameworkVersion: '6',
+          agent: 'claude-code',
+        },
       });
     </script>
   </head>

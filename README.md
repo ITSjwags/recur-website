@@ -13,7 +13,7 @@ Marketing site for [Recur](https://recur.fit) — a strength training app for ad
 
 ```bash
 yarn install
-cp .env.example .env   # fill in your PostHog key
+cp .env.example .env   # fill in your PostHog and HeyCatch keys
 yarn dev               # http://localhost:4321
 ```
 
@@ -23,6 +23,7 @@ yarn dev               # http://localhost:4321
 |---|---|
 | `PUBLIC_POSTHOG_KEY` | PostHog project API key (get from PostHog → Settings → Project token & ID) |
 | `PUBLIC_POSTHOG_HOST` | PostHog ingest host (defaults to `https://us.i.posthog.com`) |
+| `PUBLIC_HEYCATCH_KEY` | HeyCatch publishable project key (get from the HeyCatch dashboard's Install page) |
 
 In production these are set in Netlify → Site config → Environment variables.
 
