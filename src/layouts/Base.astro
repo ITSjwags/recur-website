@@ -74,19 +74,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         property_blacklist: ['$ip'],
       });
     </script>
-    <!-- HeyCatch analytics -->
-    <script>
-      import { analytics } from '@heycatch/sdk';
-
-      analytics.init({
-        projectKey: 'hck_pk_AEwb62Snkx9yG2W2S6viAeeI7HWvYNSQ',
-        install: {
-          framework: 'astro',
-          frameworkVersion: '6',
-          agent: 'claude-code',
-        },
-      });
-    </script>
   </head>
   <body>
     <slot />
